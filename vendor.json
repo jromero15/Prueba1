@@ -1,0 +1,37 @@
+{
+    "libs": [
+        "src/libs/thirdparty/jQuery/jquery-3.1.1.min.js",
+        "bower_components/angular/angular.min.js",
+        "bower_components/angular-route/angular-route.min.js",
+        "bower_components/angular-animate/angular-animate.min.js",
+        "bower_components/angular-ui-router/release/angular-ui-router.min.js",
+        "bower_components/ngstorage/ngStorage.min.js",
+        "bower_components/angular-sanitize/angular-sanitize.min.js",
+        "bower_components/angular-resource/angular-resource.min.js",
+        "bower_components/oclazyload/dist/ocLazyLoad.min.js",
+        "bower_components/angular-aria/angular-aria.min.js",
+        "bower_components/fastclick/lib/fastclick.js",
+        "bower_components/moment/min/moment.min.js",
+        "bower_components/moment/locale/es.js"
+    ],
+    "thirdparty": [
+        "src/libs/thirdparty/jQuery/jquery-ui.min.js",
+        "src/libs/thirdparty/bootstrap/bootstrap.min.js",
+        "src/libs/thirdparty/bootstrap/bootstrap-notify.js",
+        "src/libs/thirdparty/material/material.min.js",
+        "src/libs/thirdparty/material/material-dashboard.js",
+        "src/libs/thirdparty/perfect-scrollbar.jquery.min.js",
+        "src/libs/thirdparty/sweetalert2.js",
+        "src/libs/thirdparty/jQuery/jquery.select-bootstrap.js",
+        "src/libs/thirdparty/bootstrap/bootstrap-datetimepicker.js"
+    ],
+    "lazylibs": [
+		"bower_components/gmaps/gmaps.min.js",
+		"bower_components/datatables.net/js/jquery.dataTables.min.js",
+		"bower_components/angular-datatables/dist/angular-datatables.min.js",
+		"bower_components/angular-file-upload/dist/angular-file-upload.min.js",
+		"src/libs/lazylibs/fullcalendar.min.js",
+		"src/libs/lazylibs/jquery.select-bootstrap.js",
+		"src/libs/lazylibs/bootstrap-datetimepicker.js"
+    ]
+}

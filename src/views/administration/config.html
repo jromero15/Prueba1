@@ -1,0 +1,140 @@
+<div class="container-fluid config">
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-2 col-sm-3">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+        						<a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Derechos y accesos</a>
+      						</h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <ul>
+                                	<li class="pointer"><i class="material-icons v-a-bottom">home</i>Agencias</li>
+                                	<li class="pointer"><i class="material-icons v-a-bottom">business</i>Almacenes</li>
+                                	<li class="pointer"><i class="material-icons v-a-bottom">recent_actors</i>Perfiles</li>
+                                	<li class="pointer"><i class="material-icons v-a-bottom">people</i>Usuarios</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                            <h4 class="panel-title">
+        						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Modelización</a>
+      						</h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div class="panel-body">
+                                <ul>
+                                	<li class="pointer"><i class="material-icons v-a-bottom">assignment</i>Atributos de objetos</li>
+                                	<li class="pointer"><i class="material-icons v-a-bottom">local_shipping</i>Modelos de técnico</li>
+                                	<li class="pointer"><i class="material-icons v-a-bottom">access_time</i>Modelos de tarea</li>
+                                	<li class="pointer"><i class="material-icons v-a-bottom">perm_contact_calendar</i>Modelos de cliente</li>
+                                	<li class="pointer"><i class="material-icons v-a-bottom">settings</i>Estrategia</li>
+                                	<li class="pointer"><i class="material-icons v-a-bottom">directions_car</i>Perfiles de vehículo</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingThree">
+                            <h4 class="panel-title">
+						        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Calendarios</a>
+						    </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                            <div class="panel-body">
+                                <ul>
+                                	<li class="pointer"><i class="material-icons v-a-bottom">today</i>Días de trabajo tipo</li>
+                                	<li class="pointer"><i class="material-icons v-a-bottom">event</i>Calendarios horarios</li>
+                                	<li class="pointer"><i class="material-icons v-a-bottom">developer_board</i>Calendarios de días festivos</li>
+                                	<li class="pointer"><i class="material-icons v-a-bottom">speaker_notes</i>Razones de indisponibilidad</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                            <h4 class="panel-title">
+        						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">Personalización</a>
+      						</h4>
+                        </div>
+                        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div class="panel-body">
+                                <ul>
+                                	<li class="pointer"><i class="material-icons v-a-bottom">branding_watermark</i>Intervalos</li>
+                                	<li class="pointer"><i class="material-icons v-a-bottom">receipt</i>Vistas</li>
+                                	<li class="pointer"><i class="material-icons v-a-bottom">subject</i>Vocabulario</li>
+                                	<li class="pointer"><i class="material-icons v-a-bottom">g_translate</i>Idiomas</li>
+                                	<li class="pointer"><i class="material-icons v-a-bottom">show_chart</i>Informes integrados</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-10 col-sm-9 bg-white">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+					<h3><i class="material-icons v-a-sub i-tile">home</i><span>Lista de las agencias</span></h3>
+
+					<div class="col-md-12">
+						<button class="btn btn-success">Nuevo</button>
+						<button class="btn btn-warning">Actualizar</button>
+					</div>
+					<div class="col-md-12">
+						<div class="table-responsive">
+							<div class="material-datatables">
+								<br>
+	                            <table id="agenciesTable" class="display nowrap" cellspacing="0" width="100%" >
+	                                <thead>
+	                                    <tr>
+	                                        <th class="text-center">#</th>
+	                                        <th class="text-center">Id</th>
+	                                        <th class="text-center">Nombre</th>
+	                                        <th class="text-center">Descripción</th>
+	                                        <th class="text-center">Depende de</th>
+	                                        <th class="text-center">Acción</th>
+	                                    </tr>
+	                                </thead>
+	                                <tfoot>
+	                                    <tr>
+	                                        <th class="text-center">#</th>
+	                                        <th class="text-center">Id</th>
+	                                        <th class="text-center">Nombre</th>
+	                                        <th class="text-center">Descripción</th>
+	                                        <th class="text-center">Depende de</th>
+	                                        <th class="text-center">Acción</th>
+	                                    </tr>
+	                                </tfoot>
+	                                <tbody>
+	                                	<tr ng-repeat="agency in cfgCtrl.listAgencies">
+	                                        <td class="text-center">{{$index}}</td>
+	                                        <td class="text-center">{{agency.id}}</td>
+	                                        <td class="text-center">{{agency.name}}</td>
+	                                        <td class="text-center">{{agency.description}}</td>
+	                                        <td class="text-center">{{agency.dependence}}</td>
+	                                        <td class="text-center">
+	                                            <a ng-click="cfgCtrl.fillFields(agency.id)" href class="btn btn-simple btn-warning btn-icon edit"><i class="material-icons">mode_edit</i></a>
+	                                            <a ng-click="cfgCtrl.confirm('delete',agency.id)" id="btnDeleteCustomer{{agency.id}}" data-loading-text="<i class='fa fa-spinner fa-spin '></i>" href class="btn btn-simple btn-danger btn-icon remove"><i class="material-icons">close</i></a>
+	                                        </td>
+	                                    </tr>
+	                                </tbody>
+	                            </table>
+	                            <br>
+                        	</div>
+						</div>
+					</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>

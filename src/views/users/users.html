@@ -1,0 +1,242 @@
+<div class="wrapper">
+    <div class="main-panel">
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header card-header-tabs" data-background-color="green">
+                                <div class="nav-tabs-navigation">
+                                    <div class="nav-tabs-wrapper">
+                                        <span class="nav-tabs-title">
+											<strong>Usuarios</strong>
+										</span>
+                                        <ul class="nav nav-tabs" data-tabs="tabs">
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <h4 class="card-title"></h4>
+                                <div class="toolbar">
+                                    <button class="btn btn-info" ng-click="usersCtrl.createUser()">Crear</button>
+                                </div>
+                                <div class="material-datatables">
+                                    <table id="usersTable" class="display nowrap" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">#</th>
+                                                <th class="text-center">Id</th>
+                                                <th class="text-center">Nombre</th>
+                                                <th class="text-center">Apellido</th>
+                                                <th class="text-center">Usuario</th>
+                                                <th class="text-center">Correo</th>
+                                                <th class="text-center">Telefono</th>
+                                                <th class="text-center">Cedula</th>
+                                                <th class="text-center">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th class="text-center">#</th>
+                                                <th class="text-center">Id</th>
+                                                <th class="text-center">Nombre</th>
+                                                <th class="text-center">Apellido</th>
+                                                <th class="text-center">Usuario</th>
+                                                <th class="text-center">Correo</th>
+                                                <th class="text-center">Telefono</th>
+                                                <th class="text-center">Cedula</th>
+                                                <th class="text-center">Actions</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <tr ng-repeat="user in usersCtrl.listUsers">
+                                                <td class="text-center">{{$index}}</td>
+                                                <td class="text-center">{{user.id}}</td>
+                                                <td class="text-center">{{user.first_name}}</td>
+                                                <td class="text-center">{{user.last_name}}</td>
+                                                <td class="text-center">{{user.username}}</td>
+                                                <td class="text-center">{{user.email}}</td>
+                                                <td class="text-center">{{user.telefono}}</td>
+                                                <td class="text-center">{{user.cedula}}</td>
+                                                <td class="text-center">
+                                                    <a  ng-click="usersCtrl.fillFields(user.id)" href class="btn btn-simple btn-warning btn-icon edit"><i class="material-icons">mode_edit</i></a>
+                                                    <a ng-click="usersCtrl.confirm('delete',user.id)" id="btnDeleteUser{{user.id}}" data-loading-text="<i class='fa fa-spinner fa-spin '></i>" href class="btn btn-simple btn-danger btn-icon remove"><i class="material-icons">close</i></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- end content-->
+                        </div>
+                        <!--  end card  -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" data-keyboard="false" id="createUsers" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title text-center" id="myModalLabel">{{usersCtrl.titleModal}}</h4>
+            </div>
+            <div class="modal-body contentUserCreate forms">
+                <div class="input-group">
+                    <span class="input-group-addon">
+						<i class="material-icons">face</i>
+					</span>
+                    <div class="form-group is-empty">
+                    	<input type="text" class="form-control" placeholder="Nombres" ng-model="usersCtrl.obj.first_name">
+                    	<span class="material-input"></span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">
+						<i class="material-icons">face</i>
+					</span>
+                    <div class="form-group is-empty">
+                    	<input type="text" class="form-control" placeholder="Apellidos" ng-model="usersCtrl.obj.last_name">
+                    	<span class="material-input"></span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">
+						<i class="material-icons">account_circle</i>
+					</span>
+                    <div class="form-group is-empty">
+                    	<input type="text" class="form-control" placeholder="Usuario" ng-model="usersCtrl.obj.username">
+                    	<span class="material-input"></span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">
+						<i class="material-icons">fingerprint</i>
+					</span>
+                    <div class="form-group is-empty">
+                    	<input type="password" class="form-control" placeholder="Contraseña" ng-model="usersCtrl.obj.password">
+                    	<span class="material-input"></span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">
+						<i class="material-icons">fingerprint</i>
+					</span>
+                    <div class="form-group is-empty">
+                    	<input type="password" class="form-control" placeholder="Confirmar Contraseña" ng-model="usersCtrl.obj.passConfirm">
+                    	<span class="material-input"></span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">
+						<i class="material-icons">email</i>
+					</span>
+                    <div class="form-group is-empty">
+                    	<input type="email" class="form-control" placeholder="Correo" ng-model="usersCtrl.obj.email">
+                    	<span class="material-input"></span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">
+						<i class="material-icons">phone_android</i>
+					</span>
+                    <div class="form-group is-empty">
+                    	<input type="text" class="form-control" placeholder="Telefono" ng-model="usersCtrl.obj.telefono">
+                    	<span class="material-input"></span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">
+						<i class="material-icons">assignment_ind</i>
+					</span>
+                    <div class="form-group is-empty">
+                    	<input type="number" class="form-control" placeholder="Cedula" ng-model="usersCtrl.obj.cedula">
+                    	<span class="material-input"></span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">
+						<i class="material-icons">business</i>
+					</span>
+                    <div class="form-group is-empty">
+                    	<select class="select" ng-options="o.id as o.nombre_empresa for o in usersCtrl.listCompany" ng-model="usersCtrl.obj.id_empresa">
+                    		<option value="">Seleccione Empresa</option>
+                    	</select>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">
+						<i class="material-icons">portrait</i>
+					</span>
+                    <div class="form-group is-empty">
+                    	<select class="select" ng-model="usersCtrl.obj.id_perfil" ng-options="o.id as o.nombre_perfil for o in usersCtrl.listProfiles">
+                    		<option value="">Seleccione Perfil</option>
+                    	</select>
+                    </div>
+                </div>
+
+				<div class="input-group">
+                    <span class="input-group-addon">
+						<i class="material-icons">assignment_ind</i>
+					</span>
+                    <div class="form-group is-empty">
+                    	<input type="text" class="form-control" value="Grupos" disabled="true">
+                    	<span class="material-input"></span>
+                    </div>
+                </div>
+
+				<form class="contentChecks" id="usersGroupsList">
+            		<div class="checkbox" ng-repeat="gruop in usersCtrl.listGroups">
+						<label>
+							<input type="checkbox" name="optionsCheckboxes" value="{{gruop.id}}"><span class="checkbox-material"><span class="check"></span></span>
+							{{gruop.nombre_grupo}}
+						</label>
+					</div>
+            	</form>
+
+            	<div class="input-group">
+                    <span class="input-group-addon">
+						<i class="material-icons">assignment</i>
+					</span>
+                    <div class="form-group is-empty">
+                    	<input type="text" class="form-control" value="Clientes" disabled="true">
+                    	<span class="material-input"></span>
+                    </div>
+                </div>
+
+                <form class="contentChecks" id="usersCustomersList">
+            		<div class="checkbox" ng-repeat="customer in usersCtrl.listCustomers">
+						<label>
+							<input type="checkbox" name="optionsCheckboxes" value="{{customer.id}}"><span class="checkbox-material"><span class="check"></span></span>
+							{{customer.nombre_cliente}}
+						</label>
+					</div>
+            	</form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="usersCtrl.confirm('save')" id="saveUserNew" ng-show="usersCtrl.btnSHSave" class="btn btn-success btn-simple" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Enviado datos...">Guardar</button>
+                <button type="button" ng-click="usersCtrl.confirm('update')" id="updateUser" ng-show="usersCtrl.btnSHUpdate" class="btn btn-success btn-simple" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Actualizando datos...">Actualizar</button>
+                <button type="button" ng-click="usersCtrl.clearForm()" class="btn btn-warning btn-simple">Limpiar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="confirmUsers" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header text-center h3">
+                {{usersCtrl.textConfirmUsers}}
+            </div>
+            <div class="modal-footer text-center">
+                <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="usersCtrl.selectAction()">Aceptar</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>

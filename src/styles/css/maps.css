@@ -1,0 +1,662 @@
+.themap{
+    position:relative;
+    width:100%;
+    height: calc(100% - 60px);
+    margin-top: 70px;
+}
+
+.smap {
+  height: 280px;
+  border-radius: 6px;
+  margin-top: 15px;
+}
+
+.spanorama{
+	width:100%;
+	height: 300px;
+	overflow: auto;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* Styles */
+	.smap-big{
+        height:500px;
+    }
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width : 321px) {
+/* Styles */
+.smap-big{
+        height:540px;
+    }
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 320px) {
+/* Styles */
+.smap-big{
+        height:540px;
+    }
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+/* Styles */
+.smap-big{
+        height:570px;
+    }
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+/* Styles */
+.smap-big{
+        height:570px;
+    }
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+/* Styles */
+.smap-big{
+        height:570px;
+    }
+}
+
+/* iPads 3 (portrait) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+/* Styles */
+.smap-big{
+        height:570px;
+    }
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+/* Styles */
+.smap-big{
+        height:570px;
+    }
+}
+
+/* Desktops and laptops ----------- */
+@media only screen  and (min-width : 1224px) {
+/* Styles */
+.smap-big{
+        height:600px;
+    }
+}
+
+/* Large screens ----------- */
+@media only screen  and (min-width : 1824px) {
+/* Styles */
+.smap-big{
+        height:750px;
+    }
+}
+/* more Large screens ----------- */
+@media only screen  and (min-width : 1366px) {
+/* Styles */
+.smap-big{
+        height:750px;
+    }
+}
+
+/* iPhone 4 ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+/* Styles */
+.smap-big{
+        height:570px;
+    }
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+/* Styles */
+.smap-big{
+        height:570px;
+    }
+}
+
+
+.smap-big {
+	height: 100vh;
+}
+
+
+/** sidebars map */
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://cdn.rawgit.com/google/material-design-icons/a6145e16/iconfont/MaterialIcons-Regular.eot');
+    /* For IE6-8 */
+    src: url('https://cdn.rawgit.com/google/material-design-icons/a6145e16/iconfont/MaterialIcons-Regular.woff2') format('woff2'), url('https://cdn.rawgit.com/google/material-design-icons/a6145e16/iconfont/MaterialIcons-Regular.woff') format('woff'), url('https://cdn.rawgit.com/google/material-design-icons/a6145e16/iconfont/MaterialIcons-Regular.ttf') format('truetype');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+.baseMap .sidebarMap {
+    background: #ffffff;
+    z-index: 1;
+    position: fixed;
+    overflow:hidden;
+    width: 20%;
+    box-shadow: 0 10px 30px -4px rgb(0, 0, 0), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s;
+    margin-top: 10vh;
+    height: 90vh;
+
+}
+
+.baseMap .sidebarMap .itemUl {
+    list-style: none;
+    color: #000;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+}
+
+.baseMap .sidebarMap .itemUl .itemLi button{
+    width: 80%;
+ }
+
+
+.baseMap .arrowLeft {
+	background: #09090991;
+    height: 90vh;
+    z-index: 1;
+    right: inherit;
+    border-bottom: 1px solid #0a0d11;
+    /* border-right: 1px solid #c2c2c2; */
+    top: 10vh;
+    position: fixed;
+    left: 20%;
+    vertical-align: middle;
+    border-radius: 0px 0px 0px 0px;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.baseMap .arrowLeftTwo {
+	right: 25%;
+    left: inherit;
+    /* border-left: 1px solid #c2c2c2; */
+    border-right: 0;
+    border-radius: 0px 0px 0px 0px;
+    background: #09090991;
+    width: 25px;
+    height: 90vh;
+    z-index: 1;
+    border-bottom: 1px solid #0a0d11;
+    /* border-right: 1px solid #c2c2c2; */
+    top: 10vh;
+    position: fixed;
+    vertical-align: middle;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+
+.baseMap .arrowLeft i ,.arrowLeftTwo i{
+	font-size: 25px;
+    color: #fff;
+    margin-top: 45vh;
+    margin-left: -2px;
+}
+
+
+
+.baseMap .sidebarMapRight {
+	right: 0;
+	width: 25%;
+	overflow-y: auto;
+    padding-bottom: 20px;
+}
+
+
+/*hide show arrow and navbar*/
+
+.baseMap .hideSidebarMap {
+	width: 0% !important;
+}
+
+.baseMap .hideArrow {
+	left:0% !important;
+}
+
+.baseMap .hideArrow2 {
+	right:0% !important;
+}
+
+
+.baseMap .dataCustomer {
+	background-color: #ffffff;
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 5px;
+    webkit-box-shadow: 0px 1px 6px -1px rgba(0,0,0,1);
+    -moz-box-shadow: 0px 1px 6px -1px rgba(0,0,0,1);
+    box-shadow: 0px 1px 6px -1px rgba(0,0,0,1);
+    font-size: 11px;
+    overflow: hidden;
+    border: 2px solid #fff;
+    transition: all 0.5s ease;
+}
+
+.baseMap .dataCustomer .i{
+	vertical-align: text-top;
+    font-size: 12px !important;
+}
+
+.baseMap .dataCustomer:hover{
+	border-bottom: 2px solid #58c52e;
+    border-top: 2px solid #58c52e;
+}
+
+.baseMap .dataCustomerInactive {
+	background: #dbdbdb;
+    color: #6c6c6c;
+    border: 2px solid #dbdbdb;
+}
+
+.baseMap .textWeight{
+	font-weight:500;
+}
+
+.baseMap .arrowDownTop{
+    width: 100%;
+    border-radius: 0 0 5px 5px;
+    color: #5c5c5c;
+}
+
+.baseMap hr {
+	margin:0;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.baseMap .text-primary{
+	color: #056ad8;
+}
+
+
+.baseMap .contentRoute{
+	transition: all 0.5s;
+    max-height: 200px;
+    height: 160px;
+    overflow: auto;
+    margin:0;
+    border-top: 1px solid #eeeeee;
+    font-size: 13px;
+}
+
+.baseMap .contentRoute i{
+	font-size: 14px !important;
+	vertical-align: text-bottom;
+}
+
+.baseMap .heightNone {
+	height: 0;
+    overflow: hidden;
+}
+
+.baseMap .contentCustomers div.dataTables_wrapper div.dataTables_filter {
+	margin-left: 0;
+}
+
+.baseMap .contentCustomers table.dataTable.stripe tbody tr.odd, table.dataTable.display tbody tr.odd {
+	background-color: #ffffff !important;
+}
+
+.baseMap .contentCustomers div.dataTables_wrapper div.dataTables_filter {
+	text-align: center ;
+    float: unset ;
+    margin-top: 10px ;
+    margin-bottom: -10px ;
+}
+
+.baseMap .contentCustomers table.dataTable.display tbody td {
+	border-top: 0;
+}
+
+.baseMap .contentCustomers table.dataTable.display tbody tr:hover{
+	background-color: #ffffff;
+}
+
+
+.baseMap .dropdown-menu {
+	width: 90%;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    left: 5%;
+}
+
+.baseMap .dropdown-menu li a:hover {
+	background-color: #009b3a;
+}
+
+.baseMap .togglebutton label input[type=checkbox]:checked + .toggle{
+	background-color: #009b3a;
+}
+
+.baseMap .togglebutton label input[type=checkbox]:checked + .toggle:after {
+	border-color: #009b3a;
+}
+
+.baseMap .togglebutton label{
+	color:#333;
+}
+
+
+.baseMap .alarms {
+    background-color: #ff9800;
+
+    margin: 0 auto;
+    margin-top: 10px;
+    color: white;
+    border-radius: 4px;
+    transition: all 0.5s;
+    font-size: 12px;
+    overflow: hidden;
+    padding: 2px;
+    /*box-shadow: 0px 1px 4px -1px rgba(0,0,0,1);*/
+    padding-bottom: 0;
+}
+
+.baseMap .alarms .content {
+	padding: 0px;
+	margin-left: 15px;
+}
+
+.baseMap .alarms .content2 {
+	padding: 0px;
+	margin-left: -20px;
+}
+
+.baseMap .alarms .content p i{
+    font-size: 40px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.baseMap .alarms .content p .nameAlert{
+    font-size: 10px;
+}
+
+
+.baseMap .colorGpsOn{
+	background-color:#009688;
+}
+
+.baseMap .colorGpsOff{
+	background-color:#607D8B;
+}
+
+.baseMap .colorAusenciaTransmisión{
+	background-color:#ff9800;
+}
+
+.baseMap .colorDetencionProlongada{
+	background-color:#f44336;
+}
+
+.baseMap .colorEntradaZona{
+	background-color:#00bcd4;
+}
+
+.baseMap .colorFueraZona{
+	background-color:#2196F3;
+}
+
+.baseMap .colorDefault{
+	background-color:#333;
+}
+
+
+.baseMap .alarms:hover{
+	box-shadow: 0 14px 26px -12px rgb(96, 125, 139), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgb(238, 238, 238);
+}
+
+
+.baseMap .setPanel{
+	position: absolute;
+    border-radius: 5px;
+    z-index: 34444;
+    width: 94%;
+    margin-left: 3%;
+    background-color: #ffffff;
+    bottom: 5px;
+    max-height: 35vh;
+    padding: 10px;
+    font-size: 12px;
+    word-break: break-all;
+    overflow: hidden;
+    box-shadow: 0px 1px 6px -1px rgba(0,0,0,1);
+}
+
+.baseMap .setPanel .contentDir{
+    overflow-y: auto;
+    max-height: 25vh;
+    word-wrap: break-word;
+}
+
+.baseMap .setPanel .stateCustomer ul{
+	list-style: none;
+	padding:0;
+	margin-bottom: 0px;
+}
+
+.baseMap .setPanel .stateCustomer ul li{
+	display: unset;
+    font-size: 1em;
+}
+
+.baseMap .setPanel .stateCustomer ul li i{
+	font-size: 2em;
+    vertical-align: bottom;
+}
+
+.baseMap .colorVisit {
+	color: #32ba7c;
+}
+
+.baseMap .colorNoVisit {
+	color: #d80027;
+}
+
+.baseMap .colorTransit {
+	color: #ff9800;
+}
+
+
+.baseMap .infoRoute{
+	text-align: center;
+    margin-bottom: 0;
+}
+
+.baseMap .closeSetPanel{
+	position: absolute;
+    right: 5px;
+    top: 0px;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.baseMap .displayNone {
+	display: none;
+}
+
+.baseMap .controlMap{
+	top: 10vh;
+    color: white;
+    position: fixed;
+    left: 41.5%;
+    background: #00000099;
+    border-radius: 0px 0px 4px 4px;
+}
+
+.baseMap .controlMap .listItems{
+	list-style: none;
+    padding: 0;
+    display: inline-flex;
+    margin: 0;
+    font-size: 24px;
+}
+
+.baseMap .controlMap .listItems .item{
+	padding: 8px;
+    font-size: 30px;
+    color: #fefefe;
+    transition: all 0.5s;
+}
+
+.baseMap .controlMap .listItems .item:hover {
+	background-color: #056ad875;
+}
+
+
+
+.baseMap .controlMap .listItems .item ul{
+	list-style: none;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    position: absolute;
+    background: #1414148f;
+    width: 30px;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 5px;
+    padding-top: 15px;
+    border-radius: 0 0 4px 4px;
+    top: 36px;
+    left: 0;
+    width: 100.1%;
+    display: none;
+    transition: all 0.5s;
+}
+
+.baseMap .controlMap .listItems .item ul li{
+	display: table-cell;
+}
+
+.baseMap .controlMap .listItems .item ul li img{
+	width: 25px;
+    margin-left: 2.5px;
+    margin-right: 2.5px;
+}
+
+.baseMap .controlMap .listItems .item:hover ul {
+    display: inline-table;
+    transition: all 0.5s;
+}
+
+
+.infoWindowsContent {
+	width: 150px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.infoWindowsContent img {
+	height: 70px;
+    border-radius: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    box-shadow: 0 14px 26px -12px rgb(62, 62, 62), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgb(238, 238, 238);
+}
+
+.infoWindowsContent i {
+	font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 100%;
+    color: white;
+    padding: 10px;
+}
+
+@media (max-width: 1205px) {
+    .baseMap .sidebarMapRight, .baseMap .sidebarMap {
+		width: 30%;
+	}
+	.baseMap .arrowLeft{
+		left: 30%;
+	}
+	.baseMap .arrowLeftTwo {
+		right: 30%;
+	}
+
+}
+
+@media (max-width: 800px) {
+    .baseMap .sidebarMapRight, .baseMap .sidebarMap {
+		width: 38%;
+	}
+	.baseMap .arrowLeft{
+		left: 38%;
+	}
+	.baseMap .arrowLeftTwo {
+		right: 38%;
+	}
+
+
+	.baseMap .controlMap{
+		left: 39%;
+	}
+
+}
+
+@media (max-width: 700px) {
+    .baseMap .sidebarMapRight, .baseMap .sidebarMap {
+		width: 48%;
+	}
+	.baseMap .arrowLeft{
+		left: 48%;
+	}
+	.baseMap .arrowLeftTwo {
+		right: 48%;
+	}
+}
+
+
+@media (max-width: 500px) {
+    .baseMap .sidebarMapRight, .baseMap .sidebarMap {
+		width: 88%;
+	}
+	.baseMap .arrowLeft{
+		left: 88%;
+	}
+	.baseMap .arrowLeftTwo {
+		right: 88% ;
+	}
+}

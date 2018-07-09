@@ -1,0 +1,578 @@
+<div class="wrapper">
+	<div class="main-panel">
+		<div class="content">
+			<div class="container-fluid">
+				<!--<div id="over" class="overbox"><div id="gifImage"></div></div>
+				<div id="fade" class="fadebox">&nbsp;</div>--->
+				<div class="row">
+					<div class="col-md-3">
+						<button class="btn btn-success" ng-click="clndrCtrl.EventClickTypeEevet()">Crear Tipo De Cita<div class="ripple-container"></div></button>
+						<div class="card">
+							<div class="card-header">
+								<h4 class="card-title text-center">Eventos</h4>
+							</div>
+							<div class="card-content text-center">
+								<button type="button" class="btn btn-agenda-privada btn-lg" ng-click="clndrCtrl.onEventDayClick()">Agendar Cita </button>
+								<button type="button" class="btn btn-green btn-lg" ng-click="clndrCtrl.onEventGhostClick()">Disponibilidad</button>
+
+								<!-- <div class="alert alert-rose alert-with-icon" data-notify="container">
+																		 <i class="material-icons" data-notify="icon">local_offer</i>
+																		 <button type="button" aria-hidden="true" class="close">
+																				 <i class="material-icons">close</i>
+																		 </button>
+																		 <span data-notify="message">Cita General</span>
+																 </div>
+																 <div class="alert alert-warning alert-with-icon" data-notify="container">
+																		 <i class="material-icons" data-notify="icon">local_offer</i>
+																		 <button type="button" aria-hidden="true" class="close">
+																				 <i class="material-icons">close</i>
+																		 </button>
+																		 <span><b>Medicina general</b></span>
+																 </div>
+																 <div class="alert alert-info alert-with-icon" data-notify="container">
+																		 <i class="material-icons" data-notify="icon">local_offer</i>
+																		 <button type="button" aria-hidden="true" class="close">
+																				 <i class="material-icons">close</i>
+																		 </button>
+																		 <span><b>Optometría</b></span>
+																 </div>
+																 <div class="alert alert-success alert-with-icon" data-notify="container">
+																		 <i class="material-icons" data-notify="icon">local_offer</i>
+																		 <button type="button" aria-hidden="true" class="close">
+																				 <i class="material-icons">close</i>
+																		 </button>
+																		 <span><b>Franja 3</b></span>
+																 </div>
+																 <div class="alert alert-primary alert-with-icon" data-notify="container">
+																		 <i class="material-icons" data-notify="icon">local_offer</i>
+																		 <button type="button" aria-hidden="true" class="close">
+																				 <i class="material-icons">close</i>
+																		 </button>
+																		 <span><b>Franja 3</b></span>
+																 </div>-->
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-9">
+						<div class="card card-calendar">
+							<div class="card-content" class="ps-child">
+								<div id="gifImage"></div>
+								<div id="tittleUser"></div>
+								<div id="fullCalendar"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal Tipo de Evento -->
+	<div class="modal fade" id="myModalTyeEvent" data-keyboard="false" data-backdrop="static"
+				 tabindex="-1" role="dialog" aria-labelledby="myModalTyeEventLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+							<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+									<br/>
+								</div>
+								<!-- Table-->
+							<div class="modal-body">
+								<div class="container-fluid">
+									<div class="row">
+										<div class="col-md-12">
+											<div class="card">
+												<div class="text-center card-header-text">
+													<h4 class="card-title btn-agenda-tipo-evento">TIPO DE CITA</h4>
+												</div>
+												<div class="card-content">
+													<div class="table-responsive">
+														<table class="table">
+															<thead>
+															<tr>
+																<th class="text-center">Descripción</th>
+																<th class="text-center">Duración</th>
+																<th class="text-center">Precio</th>
+																<th class="text-center">Acción</th>
+															</tr>
+															</thead>
+															<tbody>
+															<tr >
+																<td class="text-center"><input ng-model='clndrCtrl.campos.name' id='nametd' class="valida-input" type="text" ng-pattern="/^[a-zA-Z]*$/" value="" style="width: 196px" required/></td>
+																<td class="text-center"><input ng-model='clndrCtrl.campos.durartion' id='durartiontd' ype="text" class="valida-input" ng-pattern="/^\d+$/" value="" style="width: 50px" aria-describedby="inputTime" required/></td>
+																<td class="text-center"><input ng-model='clndrCtrl.campos.price' id='pricetd' type="text" class="valida-input"  value="" style="width: 83px" required/></td>
+																<td class="td-actions text-right">
+																	<button class="btn btn-success" ng-click="clndrCtrl.addTypeEvent()">agregar<div class="ripple-container"></div></button>
+																</td>
+															</tr>
+															</tbody>
+														</table>
+														<hr/>
+														<table class="table">
+															<thead>
+															<tr>
+																<th class="text-center" >Descripción</th>
+																<th class="text-center" >Duración</th>
+																<th class="text-center" >Precio</th>
+																<th class="text-center">Acción</th>
+															</tr>
+															</thead>
+															<tbody>
+															<tr ng-repeat="typeEvent in clndrCtrl.resultListTypeEvent">
+																<td >{{typeEvent.name}}</td>
+																<td class="text-center" >{{typeEvent.durartion}}</td>
+																<td class="text-center" >{{typeEvent.price}}</td>
+																<td class="td-actions text-right">
+																	<button class="btn btn-danger" ng-click="clndrCtrl.removeTypeEvent(typeEvent)">Eliminar<div class="ripple-container"></div></button>
+																</td>
+															</tr>
+															</tbody>
+														</table>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+								<!-- Table-->
+						<div class="modal-footer">
+										<button type="button" class="btn btn-info btn-simple" data-dismiss="modal">Cerrar</button>
+								</div>
+					</div>
+				</div>
+		</div>
+	<!-- Modal Tipo de Evento -->
+	<!-- Modal Calendar -->
+	<div class="modal fade" id="myModalCalendar" data-keyboard="false" data-backdrop="static"
+		tabindex="-1" role="dialog" aria-labelledby="myModalCalendarLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">Citas de d&iacute;a</h4>
+				</div>
+				<!-- Table-->
+				<div class="modal-body">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="card">
+									<div class="card-header card-header-icon" data-background-color="rose">
+										<i class="material-icons">assignment</i>
+									</div>
+									<!--<h4 class="card-title">Citas de d&iacute;a</h4>-->
+									<div class="card-content">
+										<div class="table-responsive">
+											<table class="table">
+												<thead>
+													<tr>
+														<th class="text-center">#</th>
+														<th>Nombre</th>
+														<th>Tipo de cita</th>
+														<th>Hora</th>
+														<th class="text-right">Acciones</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="text-center">1</td>
+														<td>Andrew Mike</td>
+														<td>Cita General</td>
+														<td class="text-right">8:30 am</td>
+														<td class="td-actions text-right">
+															<button type="button" ng-click="clndrCtrl.onPerson()" rel="tooltip" class="btn btn-info btn-round close"
+																data-dismiss="modal">
+																<i class="material-icons">person</i>
+															</button>
+															<button type="button" ng-click="clndrCtrl.clickNotify()" rel="tooltip" class="btn btn-warning btn-round close"
+																data-dismiss="modal">
+																<i class="material-icons">notifications_active</i>
+															</button>
+														</td>
+													</tr>
+													<tr>
+														<td class="text-center">2</td>
+														<td>John Doe</td>
+														<td>Medicina General</td>
+														<td class="text-right">2:30 pm</td>
+														<td class="td-actions text-right">
+															<button type="button" ng-click="clndrCtrl.onPerson()" rel="tooltip" class="btn btn-info btn-round close"
+																data-dismiss="modal">
+																<i class="material-icons">person</i>
+															</button>
+															<button type="button" ng-click="clndrCtrl.clickNotify()" rel="tooltip" class="btn btn-warning btn-round close"
+																data-dismiss="modal">
+																<i class="material-icons">notifications_active</i>
+															</button>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Table-->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-info btn-simple" data-dismiss="modal">Cerrar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal Calendar -->
+	<!-- Modal Calendar Crear Agenda-->
+	<div class="modal fade" id="ModalCalendarCrearagenda" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="ModalCalendarCrearagendaLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<br/>
+				</div>
+				<div class="modal-body">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="card">
+									<div class="text-center card-header-text">
+										<h4 class="card-title btn-agenda-privada-form">CREAR AGENDA</h4>
+									</div>
+									<div class="card-content">
+										<form name="crearAgendaFrm" validate-form="" ng-submit="clndrCtrl.docrearAgenda('A')" novalidate="">
+											<div class="row">
+												<label class="col-sm-2 label-on-left">Descripción</label>
+												<div class="col-sm-10">
+													<div class="form-group label-floating is-empty">
+														<label class="control-label"></label>
+														<input ng-model="clndrCtrl.campos.descrip" name="descrip" type="text" class="form-control" value="">
+														<!--<select  ng-model="clndrCtrl.campos.descrip"  name="descrip" selectpicker="" class="selectpicker" data-style="select-with-transition"  title="Decripción" data-size="7">
+																														<option ng-repeat="listDesp in clndrCtrl.listaDesciones" value="{{listDesp}}">{{listDesp.name}}</option>
+																												</select>-->
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<label class="col-sm-2 label-on-left">Fecha inicio</label>
+												<!--<label class="label-control">Fecha inicio</label>-->
+												<div class="col-sm-4">
+
+													<div class="form-group">
+														<input ng-model="clndrCtrl.campos.finia" name="fini" id="fini" type="text" class="form-control datepicker"
+															value="" />
+														<span class="material-input"></span>
+														<span class="material-input text-danger lettersize" ng-show="clndrCtrl.MgsFini">{{clndrCtrl.desMsgFechaIni}}</span>
+													</div>
+												</div>
+
+
+												<label class="col-sm-2 label-on-left">Hora Inicio</label>
+												<div class="col-sm-4">
+													<div class="form-group label-floating is-empty">
+														<select ng-model="clndrCtrl.campos.hini" name="hini" selectpicker="" class="selectpicker"
+															data-style="select-with-transition" title="Fecha Inicio"
+															data-size="7">
+															<option ng-repeat="listHor in clndrCtrl.campos.rango" value="{{listHor}}">{{listHor}}</option>
+														</select>
+													</div>
+													<span class="material-input text-danger lettersize" ng-show="clndrCtrl.MgsHini">{{clndrCtrl.MsgMgsHini}}</span>
+												</div>
+											</div>
+											<div class="row">
+												<label class="col-sm-2 label-on-left">Fecha Fin</label>
+												<div class="col-sm-4">
+													<div class="form-group label-floating is-empty">
+														<div class="form-group">
+															<input ng-model="clndrCtrl.campos.ffin" id="ffin" type="text"
+																class="form-control datepicker" value="" />
+															<span class="material-input"></span>
+															<span class="material-input text-danger lettersize" ng-show="clndrCtrl.MgsFfin">{{clndrCtrl.desMsgFecha}}</span>
+														</div>
+													</div>
+												</div>
+												<label class="col-sm-2 label-on-left">Hora Fin</label>
+												<div class="col-sm-4">
+													<div class="form-group label-floating is-empty">
+														<select ng-model="clndrCtrl.campos.hfin" name="hfini" class="selectpicker" data-style="select-with-transition" title="Fecha Fin">
+
+															<option ng-repeat='listHor in clndrCtrl.campos.rango' value='{{listHor}}'>{{listHor}}</option>
+														</select>
+													</div>
+													<span class="material-input text-danger lettersize" ng-show="clndrCtrl.MgsHfin">{{clndrCtrl.FechaHfin}}</span>
+												</div>
+											</div>
+											<div class="row">
+												<label class="col-sm-3 label-on-left text-center">Repetición</label>
+												<div class="col-sm-1 text-center">
+													<div class="checkbox">
+														<label>
+															<input ng-model="clndrCtrl.campos.checkboxselect" type="checkbox" name="optionsCheckboxesRep" ng-click="clndrCtrl.envenRep(clndrCtrl.campos.checkboxselect)">
+															<span class="checkbox-material">
+																<span class="check"></span>
+															</span>
+														</label>
+													</div>
+												</div>
+												<div class="col-sm-6" ng-show="clndrCtrl.rep">
+													<select ng-model='clndrCtrl.campos.selectrep' name="rep" selectpicker="" class="selectpicker" ng-change="clndrCtrl.envenReprango(clndrCtrl.campos.selectrep)" data-style="select-with-transition" title=repeticionSelect" data-size="7 ">
+																												<option value="ALLDAY ">todo el dia</option>
+																												<option value="DAY ">Cada día</option>
+																												<option value="M|TU|W|TH|F ">Todos los días laborales</option>
+																												<option value="M|W|F ">Lunes-Miercoles-viernes</option>
+																												<option value="TU|TH ">Martes-Jueves</option>
+																												<option value="WEEK ">Cada semana</option>
+																												<option value="MONTH ">Cada mes</option>
+																												<option value="YEAR ">Cada año</option>
+																										</select>
+																								</div>
+																						</div>
+																								<div class="row " ng-show="clndrCtrl.rephasta">
+																										<label class="col-sm-3 label-on-left text-center ">Fecha Hasta</label>
+																										<div class="col-sm-1 text-center ">
+
+																										</div>
+																										<div class="col-sm-6 " >
+																												<div class="form-group label-floating is-empty ">
+																														<div class="form-group "><input ng-model='clndrCtrl.campos.fecharango' id='fecharango' type='text' class='form-control datepicker' value='' />
+																																<span class='material-input'></span>
+																																<span  class="material-input text-danger lettersize" ng-show="clndrCtrl.MgsFfin ">{{clndrCtrl.desMsgFechaRango}}</span>
+																														</div>
+																												</div>
+																										</div>
+																								</div>
+																								<div class="modal-footer ">
+																										<button type="submit " class="btn btn-danger btn-round ">Crear</button>
+																								</div>
+																						</form>
+																				</div>
+																		</div>
+																</div>
+														</div>
+												</div>
+										</div>
+
+								</div>
+
+						</div>
+				</div>
+	<!-- Modal Calendar -->
+	<!-- Modal Calendar Crear Agenda Ghost -->
+	<div class="modal fade" id='ModalGhostCrearagenda' data-backdrop="static" tabindex="-1 " role="dialog " aria-labelledby="ModalGhostCrearagendaLabel" aria-hidden="true ">
+		<div class="modal-dialog ">
+			<div class="modal-content ">
+				<div class="modal-header ">
+					<button type="button " ng-click="clndrCtrl.onClose()" class="close" data-dismiss="modal " aria-hidden="true ">&times;</button>
+					<br/>
+				</div>
+				<div class="modal-body ">
+					<div class="container-fluid ">
+						<div class="row ">
+							<div class="col-md-12 ">
+								<div class="card ">
+									<div class='text-center card-header-text' data-background-color='rose'>
+										<h4 class="card-title ">CREAR AGENDA</h4>
+									</div>
+									<div class="card-content ">
+										<form name="crearAgendaFrm " validate-form=" " ng-submit="clndrCtrl.docrearAgenda('G')" novalidate=" " >
+											<div class="row " >
+												<label class="col-sm-2 label-on-left ">Descripción</label>
+												<div class="col-sm-10 ">
+													<div class="form-group label-floating is-empty ">
+														<label class="control-label "></label>
+														<select  ng-model='clndrCtrl.campos.descrip'  name="descrip" selectpicker=" " class="selectpicker" ng-change='clndrCtrl.envenInfoTypeEvent(clndrCtrl.campos.descrip)' data-style='select-with-transition'  title='Decripción' data-size="7 ">
+															<option ng-repeat="listDesp in clndrCtrl.listaDesciones" value='{{listDesp}}'>{{listDesp.name}}</option>
+														</select>
+														<!--<input ng-model='clndrCtrl.campos.descrip' name="descrip" type="text " class="form-control " value=" ">-->
+													</div>
+												</div>
+											</div>
+											<div class="row ">
+												<label class="col-sm-2 label-on-left ">Fecha inicio</label>
+												<!--<label class="label-control ">Fecha inicio</label>-->
+												<div class="col-sm-4 ">
+													<div class="form-group ">
+														<input ng-model='clndrCtrl.campos.finig' name="finig"  id='finig' type="text " class='form-control datepicker' value=" " />
+														<span class="material-input "></span>
+														<span  class="material-input text-danger lettersize " ng-show="clndrCtrl.MgsFini ">{{clndrCtrl.desMsgFechaIni}}</span>
+													</div>
+												</div>
+												<label class="col-sm-2 label-on-left ">Hora Inicio</label>
+												<div class="col-sm-4 ">
+													<div class="form-group label-floating is-empty">
+														<select  ng-model='clndrCtrl.campos.hini'  name='hini' selectpicker=" " class='selectpicker' data-style="select-with-transition"  title="Fecha Inicio " data-size="7 ">
+															<option ng-repeat="listHor in clndrCtrl.campos.rangoHora" value="{{listHor}} ">{{listHor}}</option>
+														</select>
+													</div>
+													<span  class="material-input text-danger lettersize " ng-show="clndrCtrl.MgsHini ">{{clndrCtrl.MsgMgsHini}}</span>
+												</div>
+											</div>
+											<div class="row ">
+												<label class="col-sm-2 label-on-left ">Fecha Fin</label>
+												<div class="col-sm-4 ">
+													<div class="form-group label-floating is-empty ">
+														<div class="form-group"><input ng-model='clndrCtrl.campos.ffin' name='ffing' id='ffing' type='text' class='form-control datepicker' value=" " />
+															<span class="material-input "></span>
+															<span  class="material-input text-danger lettersize" ng-show="clndrCtrl.MgsFfin ">{{clndrCtrl.desMsgFecha}}</span>
+														</div>
+													</div>
+												</div>
+												<label class="col-sm-2 label-on-left ">Hora Fin</label>
+												<div class="col-sm-4 ">
+													<div class="form-group label-floating is-empty ">
+														<select  ng-model="clndrCtrl.campos.hfin " name="hfini" selectpicker=" " class="selectpicker " data-style="select-with-transition"  title="Fecha Fin " data-size="7 ">
+															<option ng-repeat="listHor in clndrCtrl.campos.rangoHora " value="{{listHor}} ">{{listHor}}</option>
+														</select>
+													</div>
+													<span  class="material-input text-danger lettersize " ng-show="clndrCtrl.MgsHfin ">{{clndrCtrl.FechaHfin}}</span>
+												</div>
+											</div>
+											<div class="row ">
+												<label class="col-sm-3 label-on-left text-center ">Repetición</label>
+												<div class="col-sm-1 text-center ">
+													<div class='checkbox'>
+														<label>
+															<input ng-model="clndrCtrl.campos.checkboxselect"  type='checkbox' name='optionsCheckboxesRep' ng-click='clndrCtrl.envenRep(clndrCtrl.campos.checkboxselect)'><span class="checkbox-material "><span class="check "></span></span>
+														</label>
+													</div>
+												</div>
+												<div class="col-sm-6 " ng-show='clndrCtrl.rep'>
+													<select    ng-model='clndrCtrl.campos.selectrep' name="rep" selectpicker=" " class="selectpicker " ng-change='clndrCtrl.envenReprango(clndrCtrl.campos.selectrep)' data-style="select-with-transition"  title="repeticionSelect " data-size="7 ">
+														<option value="ALLDAY ">todo el dia</option>
+														<option value="DAY ">Cada día</option>
+														<option value="M|TU|W|TH|F ">Todos los días laborales</option>
+														<option value="M|W|F ">Lunes-Miercoles-viernes</option>
+														<option value="TU|TH ">Martes-Jueves</option>
+														<option value="WEEK ">Cada semana</option>
+														<option value="MONTH ">Cada mes</option>
+														<option value="YEAR ">Cada año</option>
+													</select>
+												</div>
+											</div>
+											<div class="row " ng-show="clndrCtrl.rephasta ">
+												<label class="col-sm-3 label-on-left text-center ">Fecha Hasta</label>
+												<div class="col-sm-1 text-center ">
+												</div>
+												<div class="col-sm-6 " >
+													<div class="form-group label-floating is-empty ">
+														<div class="form-group "><input ng-model='clndrCtrl.campos.fecharango' id='fecharangoGhost' type='text' class='form-control datepicker' value='' />
+															<span class='material-input'></span>
+															<span  class="material-input text-danger lettersize" ng-show="clndrCtrl.MgsFfin">{{clndrCtrl.desMsgFechaRango}}</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="modal-footer ">
+												<button type="submit " class="btn btn-danger btn-round ">Crear</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal Calendar -->
+	<!-- Modal Calendar Crear Agenda GHOST-->
+	<div class="modal fade " id='ModalCalendarInfoAgennda' data-backdrop="static" tabindex="-1 " role="dialog" aria-labelledby='ModalCalendarInfoAgenndaLabel' aria-hidden="true ">
+		<div class="modal-dialog ">
+			<div class="modal-content ">
+				<div class="modal-header ">
+					<button type='button' class='close' ng-click='clndrCtrl.onClose()' data-dismiss='modal' aria-hidden='true'>&times;</button>
+					<br/>
+				</div>
+				<div class="modal-body ">
+					<div class="container-fluid ">
+						<div class="row ">
+							<div class="col-md-12 ">
+								<div class="card ">
+									<div class='text-center card-header-text'>
+										<h4 class='card-title btn-agenda-privada-form'>INFORMACIÓN EVENTO</h4>
+									</div>
+									<div class="card-content ">
+										<form name="crearAgendaFrm " validate-form=" " ng-submit="clndrCtrl.doAgendar()" novalidate=" " >
+											<div class="row " >
+												<label class="col-sm-2 label-on-left ">Descripción</label>
+												<div class="col-sm-10 ">
+													<div class="form-group label-floating is-empty ">
+														<label class="control-label"></label>
+														<input ng-model='clndrCtrl.campos.descrip' name='descrip' id='descrip' type='text' class='form-control' disabled />
+														<!--<select  ng-model="clndrCtrl.campos.descrip "  name="descrip" selectpicker=" " class="selectpicker " data-style="select-with-transition"  title="Decripción " data-size="7 ">
+																<option ng-repeat="listDesp in clndrCtrl.listaDesciones" value="{{listDesp}} ">{{listDesp.name}}</option>
+															</select>-->
+													</div>
+												</div>
+											</div>
+											<div class="row ">
+												<label class="col-sm-2 label-on-left ">Fecha inicio</label>
+												<!--<label class="label-control ">Fecha inicio</label>-->
+												<div class="col-sm-4 ">
+													<div class="form-group ">
+														<input ng-model='clndrCtrl.campos.fini' id='finiga' type='text' class='form-control' disabled />
+														<span class='material-input'></span>
+													</div>
+												</div>
+												<label class="col-sm-2 label-on-left ">Hora Inicio</label>
+												<div class="col-sm-4 ">
+													<div class="form-group label-floating is-empty">
+														<input ng-model='clndrCtrl.campos.hini' name='hinip' id='hinip' type='text' class='form-control' disabled>
+														<!--<select  ng-model='clndrCtrl.campos.hini'  name='hini' selectpicker=" " class='selectpicker' data-style='select-with-transition'  title='Fecha Inicio'>
+															<option ng-repeat="listHor in clndrCtrl.campos.rango " value="{{listHor}} ">{{listHor}}</option>
+															</select>-->
+													</div>
+													<span  class="material-input text-danger lettersize " ng-show="clndrCtrl.MgsHini ">{{clndrCtrl.MsgMgsHini}}</span>
+												</div>
+											</div>
+											<div class="row ">
+												<label class="col-sm-2 label-on-left ">Fecha Fin</label>
+												<div class="col-sm-4 ">
+													<div class="form-group label-floating is-empty ">
+														<div class="form-group "><input ng-model='clndrCtrl.campos.ffin' id='ffinga' type='text' class='form-control' disabled/>
+															<span class="material-input "></span>
+														</div>
+													</div>
+												</div>
+												<label class="col-sm-2 label-on-left ">Hora Fin</label>
+												<div class="col-sm-4 ">
+													<div class="form-group label-floating is-empty">
+														<input ng-model='clndrCtrl.campos.hfin' name='hfinip' id='hfinip' type='text' class='form-control'disabled>
+														<!--<select  ng-model="clndrCtrl.campos.hfin " name="hfini" selectpicker=" " class="selectpicker " data-style="select-with-transition"  title="Fecha Fin ">
+																<option ng-repeat="listHor in clndrCtrl.campos.rango " value="{{listHor}} ">{{listHor}}</option>
+															</select>-->
+													</div>
+													<span  class="material-input text-danger lettersize " ng-show="clndrCtrl.MgsHfin ">{{clndrCtrl.FechaHfin}}</span>
+												</div>
+											</div>
+											<div class="row " >
+												<label class="col-sm-2 label-on-left ">Descripción</label>
+												<div class="col-sm-10 ">
+													<div class="form-group label-floating is-empty ">
+														<label class="control-label"></label>
+														<input ng-model='clndrCtrl.campos.direc' name='direc' id='direc' type='text' class='form-control' value=" " />
+														<input ng-model='clndrCtrl.campos.tipeEvent' name='tipeEvent' id='tipeEvent' type='hidden' class='form-control'/>
+														<!--<select  ng-model="clndrCtrl.campos.descrip "  name="descrip" selectpicker=" " class="selectpicker " data-style="select-with-transition"  title="Decripción " data-size="7 ">
+																<option ng-repeat="listDesp in clndrCtrl.listaDesciones" value="{{listDesp}} ">{{listDesp.name}}</option>
+															</select>-->
+													</div>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<!--<button type="submit " class="btn btn-info btn-round ">Actualizar</button>-->
+												<button type="submit" class="btn btn-danger btn-round ">Agendar</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal Calendar -->
+</div>

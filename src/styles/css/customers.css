@@ -1,0 +1,28 @@
+.contentCustomerCreate{
+	width: 100%;
+}
+
+.contentCustomerCreate .divContent{
+	display: inline-table;
+}
+
+.contentCustomerCreate .formCustomer{
+	width: 49%;
+}
+
+.contentCustomerCreate .formCustomer .form-group{
+	margin:0;
+	margin-bottom: 0px;
+}
+
+.contentCustomerCreate .mapCustomer{
+    height: 220px;
+    float: none;
+    background: #d1d1d1;
+    border-radius: 5px;
+    margin: 0 auto;
+    border: 1px solid #ffffff;
+}
+
+
+

@@ -1,0 +1,28 @@
+.contPrincipal{
+	position: absolute;
+    top: 10vh;
+    height: 0vh;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.71);
+    z-index: 2;
+    margin: 0 auto;
+    transition: all 0.5s;
+    overflow-y: hidden;
+}
+
+.contPrincipal .tables {
+	width: 90%;
+	height: 100%;
+	background-color: ;
+	margin: 0 auto;
+}
+
+.contPrincipal .tables .card{
+	overflow: auto;
+    height: 90%;
+}
+
+
+.showContPrincipal {
+	height: 90vh;
+}

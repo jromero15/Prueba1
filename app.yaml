@@ -1,0 +1,41 @@
+application: banco-popular-183821
+version: beta
+runtime: php55
+api_version: 1
+threadsafe: yes
+
+handlers:
+
+- url: /css
+  static_dir: css
+
+- url: /fonts
+  static_dir: fonts
+
+- url: /images
+  static_dir: images
+
+- url: /js
+  static_dir: js
+
+- url: /libs
+  static_dir: libs
+
+- url: /views
+  static_dir: views
+
+- url: /index.html
+  script: index.html
+
+- url: /.*
+  script: index.html
+
+skip_files:
+  - ^(.*/)?#.*#$
+  - ^(.*/)?.*~$
+  - ^.node_modules$
+  - ^.bower_components$
+  - ^.idea$
+  - ^.git$
+  - ^.vscode$
+  - ^test$

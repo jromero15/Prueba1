@@ -1,0 +1,31 @@
+.navbar {
+	border-bottom: 0px;
+}
+
+.navbar .navbar-items{
+    list-style: none;
+    display: inline-flex;
+    padding: 0;
+    vertical-align: text-top;
+}
+
+.navbar.navbar-info{
+	background-color: #056ad8;
+	height: 10vh;
+	z-index: 1;
+}
+
+.navbar .menu i{
+	font-size: 3em;
+	cursor: pointer;
+}
+
+.navbar .title span{
+	position: relative;
+    font-size: 2em;
+    top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+	color: #fff;
+	cursor: pointer;
+}

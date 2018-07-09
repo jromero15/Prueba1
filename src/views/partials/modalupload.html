@@ -1,0 +1,98 @@
+<!-- Modal for uploads -->
+<div class="modal fade" id="modalUploads" data-keyboard="false" data-backdrop="static" name="modalUploads" tabindex="-1" role="dialog" aria-labelledby="modalUploadsLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" ng-controller="FileUploadController as form" nv-file-drop="" uploader="form.uploader" filters="queueLimit, customFilter">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="modalUploadsLabel"><strong>Carga de Archivos</strong></h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <input type="file" placeholder="Cargar archivos" nv-file-select="" uploader="form.uploader" multiple class="form-control" />
+                                <button class="btn btn-info btn-sm">
+                                    <i class="material-icons">file_upload</i> <strong>Cargar archivos</strong>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-8"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <p ng-if="form.uploader.queue.length" class="pull-right label label-info">En cola: {{ form.uploader.queue.length }}</p>
+                                    <p ng-if="!form.uploader.queue.length" class="lead text-center">No existen archivos para subir.</p>
+                                    <div ng-if="form.uploader.queue.length">
+                                        <table ng-if="form.uploader.queue.length" class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th width="50%">Nombre</th>
+                                                    <th ng-show="form.uploader.isHTML5">Tama&ntilde;o</th>
+                                                    <th ng-show="form.uploader.isHTML5">Progreso</th>
+                                                    <th style="text-align: center;" width="10%">Acciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="item in form.uploader.queue">
+                                                    <td>
+                                                        <strong>{{ item.file.name }}</strong>
+                                                    </td>
+                                                    <td ng-show="form.uploader.isHTML5" nowrap="">{{ item.file.size/1024/1024|number:2 }} MB</td>
+                                                    <td ng-show="form.uploader.isHTML5">
+                                                        <div style="margin-bottom: 0;" class="progress progress-xs">
+                                                            <div role="progressbar" ng-style="{ 'width': item.progress + '%' }" class="progress-bar"></div>
+                                                        </div>
+                                                    </td>
+                                                    <td nowrap="">
+                                                        <button type="button" ng-click="uploadCtrl.validateItem(item)" ng-disabled="item.isReady || item.isUploading || item.isSuccess" class="btn btn-info btn-xs">
+                                                            <i class="material-icons">file_upload</i> subir
+                                                        </button>
+                                                        <button type="button" ng-click="item.cancel()" ng-disabled="!item.isUploading" class="btn btn-warning btn-xs">
+                                                            <i class="material-icons">remove_circle</i> Cancelar
+                                                        </button>
+                                                        <button type="button" ng-click="item.remove()" class="btn btn-danger btn-xs">
+                                                            <i class="material-icons">delete</i> Eliminar
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <div>
+                                        <p>Progreso Total:</p>
+                                        <div style="" class="progress progress-xs">
+                                            <div role="progressbar" ng-style="{ 'width': form.uploader.progress + '%' }" class="progress-bar"></div>
+                                        </div>
+                                        <button type="button" class="btn btn-success btn-s" ng-click="form.uploader.uploadAll()" ng-disabled="!form.uploader.getNotUploadedItems().length">
+                                            <i class="material-icons">cloud_upload</i> Subir todo
+                                        </button>
+                                        <button type="button" class="btn btn-warning btn-s" ng-click="form.uploader.cancelAll()" ng-disabled="!form.uploader.isUploading">
+                                            <i class="material-icons">cancel</i> Cancelar todo
+                                        </button>
+                                        <button type="button" class="btn btn-danger btn-s" ng-click="form.uploader.clearQueue()" ng-disabled="!form.uploader.queue.length">
+                                            <i class="material-icons">delete_forever</i> Eliminar todo
+                                        </button>
+                                    </div>
+                                    <div ng-show="form.hasErrors">
+                                        <p><strong>Error:</strong></p>
+                                        <span class="label label-danger">{{form.errorMessages}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info btn-sm" data-dismiss="modal" ng-click="form.uploader.clearQueue()"><strong>Cerrar</strong></button>
+            </div>
+        </div>
+    </div>
+</div>

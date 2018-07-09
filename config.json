@@ -1,0 +1,66 @@
+{
+    "source": {
+        "html": {
+            "index": "src",
+            "partials": "src/partials",
+            "views": "src/views"
+        },
+        "js": {
+            "main": "src/js",
+            "modules": "src/js",
+            "name": "app.js"
+        },
+        "styles": {
+            "name": "app.css",
+            "css": "src/styles/css",
+            "fonts": "src/styles/fonts",
+            "less": "src/styles/less",
+            "sass": "src/styles/sass",
+            "vendor": "src/styles/vendor"
+        },
+        "shared": {
+            "index": "src/shared",
+            "html": "src/shared/html",
+            "js": "src/shared/js"
+        },
+        "images": "src/images",
+        "libs": {
+            "index": "src/libs",
+            "name": "libs.js"
+        },
+        "lazylibs": {
+            "index": "src/libs/lazylibs"
+        },
+        "mapstyles": {
+            "index": "src/libs/mapstyles"
+        }
+    },
+
+    "vendor": {
+        "base": "vendor.js"
+    },
+
+    "destination": {
+        "index": "dist",
+        "css": "dist/css",
+        "fonts": "dist/fonts",
+        "images": "dist/images",
+        "js": "dist/js",
+        "libs": "dist/libs",
+        "shared": "dist/shared",
+        "views": "dist/views",
+        "gae": "dist/app.yaml"
+    },
+
+    "prettify": {
+        "indent_inner_html": false,
+        "indent_size": 2,
+        "indent_char": " ",
+        "wrap_line_length": 78,
+        "brace_style": "collapse",
+        "unformatted": ["a", "sub", "sup", "b", "i", "u", "textarea", "code", "pre"],
+        "preserve_newlines": true,
+        "max_preserve_newlines": 2,
+        "indent_handlebars": false
+    }
+}

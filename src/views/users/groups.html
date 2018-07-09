@@ -1,0 +1,145 @@
+<div class="wrapper">
+    <div class="main-panel perfect-scrollbar-off">
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header card-header-tabs" data-background-color="orange">
+                                <div class="nav-tabs-navigation">
+                                    <div class="nav-tabs-wrapper">
+                                        <span class="nav-tabs-title">
+											<strong>Grupos</strong>
+										</span>
+                                        <ul class="nav nav-tabs" data-tabs="tabs">
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <h4 class="card-title"></h4>
+                                <div class="toolbar">
+                                    <button class="btn btn-info" ng-click="gpCtrl.createGroup()">Crear</button>
+                                </div>
+                                <div class="material-datatables ">
+                                    <table id="gruopsTable" class="display nowrap" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">#</th>
+                                                <th class="text-center">Id Grupo</th>
+                                                <th class="text-center">Nombre Grupo</th>
+                                                <th class="text-center">Cantidad de Usuarios</th>
+                                                <th class="text-center">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th class="text-center">#</th>
+                                                <th class="text-center">Id Grupo</th>
+                                                <th class="text-center">Nombre Grupo</th>
+                                                <th class="text-center">Cantidad de Usuarios</th>
+                                                <th class="text-center">Actions</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <tr ng-repeat="groups in gpCtrl.listGroups">
+                                                <td class="text-center">{{$index}}</td>
+                                                <td class="text-center">{{groups.id}}</td>
+                                                <td class="text-center">{{groups.nombre_grupo}}</td>
+                                                <td class="text-center">{{groups.cantidadUsuarios}}</td>
+                                                <td class="text-center">
+                                                    <a ng-click="gpCtrl.fillFields(groups.id)" href class="btn btn-simple btn-warning btn-icon edit"><i class="material-icons">mode_edit</i></a>
+                                                    <a ng-click="gpCtrl.confirm('delete',groups.id)" id="btnDeleteGroup{{groups.id}}" data-loading-text="<i class='fa fa-spinner fa-spin '></i>" href class="btn btn-simple btn-danger btn-icon remove"><i class="material-icons">close</i></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- end content-->
+                        </div>
+                        <!--  end card  -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" data-keyboard="false" id="createGroup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title text-center" id="myModalLabel">{{gpCtrl.titleModal}}</h4>
+            </div>
+            <div class="modal-body contentGroupCreate forms">
+                <div class="input-group">
+                    <span class="input-group-addon">
+						<i class="material-icons">group</i>
+					</span>
+                    <div class="form-group is-empty">
+                        <input type="text" class="form-control" placeholder="Nombre Grupo" ng-model="gpCtrl.obj.nombre_grupo">
+                        <span class="material-input"></span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">
+						<i class="material-icons">assignment</i>
+					</span>
+                    <div class="form-group is-empty">
+                        <input type="text" class="form-control" placeholder="Observación" ng-model="gpCtrl.obj.description">
+                        <span class="material-input"></span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">
+						<i class="material-icons">business</i>
+					</span>
+                    <div class="form-group is-empty">
+                        <select class="select" ng-options="o.id as o.nombre_empresa for o in gpCtrl.listCompany" ng-model="gpCtrl.obj.id_empresa">
+                            <option value="">Seleccione Empresa</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">
+						<i class="material-icons">assignment_ind</i>
+					</span>
+                    <div class="form-group is-empty">
+                        <input type="text" class="form-control" value="Usuarios" disabled="true">
+                        <span class="material-input"></span>
+                    </div>
+                </div>
+                <form class="contentChecks" id="groupsUsersList">
+                    <div class="checkbox" ng-repeat="gruop in gpCtrl.listUsers">
+                        <label>
+                            <input type="checkbox" name="optionsCheckboxes" value="{{gruop.id}}"><span class="checkbox-material"><span class="check"></span></span>
+                            {{gruop.first_name + gruop.last_name}}
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="gpCtrl.confirm('save')" id="saveGroupNew" ng-show="gpCtrl.btnSHSave" class="btn btn-success btn-simple" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Guardando Grupo...">Guardar</button>
+                <button type="button" ng-click="gpCtrl.confirm('update')" id="updateGroup" ng-show="gpCtrl.btnSHUpdate" class="btn btn-success btn-simple" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Actualizando Grupo...">Actualizar</button>
+                <button type="button" ng-click="gpCtrl.clearForm()" class="btn btn-warning btn-simple">Limpiar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="confirmGroup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header text-center h3">
+                {{gpCtrl.textConfirmGroup}}
+            </div>
+            <div class="modal-footer text-center">
+                <button type="button" class="btn btn-success" data-dismiss="modal"  ng-click="gpCtrl.selectAction()">Aceptar</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+

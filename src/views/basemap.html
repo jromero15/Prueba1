@@ -1,0 +1,197 @@
+<div class="wrappe baseMap">
+	<div class="sidebarMap" id="sidebar" ng-class="{'hideSidebarMap': bmapCtrl.toggleSideBar}">
+		<ul class="itemUl">
+			<li class="itemLi" ng-click="bmapCtrl.showView('routes')">
+				<button class="btn btn-warning">Rutas
+					<div class="ripple-container"></div>
+				</button>
+			</li>
+			<li class="itemLi" ng-click="bmapCtrl.showView('alarms')">
+				<button class="btn btn-danger">Alarmas
+					<div class="ripple-container"></div>
+				</button>
+			</li>
+
+			<li class="itemLi">
+
+			</li>
+		</ul>
+	<div class="setPanel" >
+		<span class="closeSetPanel displayNone" id="closeSetPanel" onclick="Anuket.closeSetPanel()">X</span>
+		<div class="stateCustomer">
+			<ul>
+				<li><i class="material-icons colorVisit">fiber_manual_record</i>Visitado</li>
+				<li><i class="material-icons colorNoVisit">fiber_manual_record</i>No Visitado</li>
+				<li><i class="material-icons colorTransit">fiber_manual_record</i>Transito</li>
+			</ul>
+			<b><p id="infoRoute" class="infoRoute"></p></b>
+		</div>
+		<div id="set-panel" class="contentDir">
+		</div>
+	</div>
+	</div>
+	<div class="arrowLeft" ng-click="bmapCtrl.toggleSidebar()" ng-class="{'hideArrow' : bmapCtrl.toggleArrow}">
+		<i class="material-icons">{{ bmapCtrl.textArrow == true ? 'keyboard_arrow_right' : 'keyboard_arrow_left' }}</i>
+	</div>
+	<div class="sidebarMap sidebarMapRight" ng-class="{'hideSidebarMap': bmapCtrl.toggleSideBar2}">
+		<div class="row" ng-show="bmapCtrl.viewRoutes">
+			<br>
+			<div class="col-md-12 text-center text-primary pointer" ng-click="bmapCtrl.addMarker('userAll', null, null)"><p>Posicion Actual Usuarios</p></div>
+			<div class="col-md-10 text-center col-md-offset-1 contentCustomers">
+				<table id="mapCustomerTable" class="display nowrap" cellspacing="0" width="100%">
+					<thead class="hidden">
+						<tr>
+							<th></th>
+						</tr>
+					</thead>
+					<tfoot class="hidden">
+						<tr>
+							<th></th>
+						</tr>
+					</tfoot>
+					<tbody>
+						<tr ng-repeat="o in bmapCtrl.listCustomerMap">
+							<td>
+								<div class="dataCustomer">
+									<div class="row">
+										<div class="col-md-6 col-xs-6">
+											<p class="textWeight">{{o.nombre}}</p>{{o.telefono}}</div>
+										<div class="col-md-6 col-xs-6">
+											<p>Bateria {{o.bateria}}%<i class="material-icons text-{{o.colorBateria}} i">battery_std</i></p>
+											<p class="pointer" ng-click="bmapCtrl.addMarker('user', o.id, null)">Posición<i class="material-icons text-danger i">place</i></p>
+										</div>
+									</div>
+									<hr>
+									<div class="row textWeight">
+										<div class="col-md-4 col-xs-4 text-success">Visitados
+											<p>{{o.visitados}}</p>
+										</div>
+										<div class="col-md-4 col-xs-4 text-danger">Sin Visitar
+											<p>{{o.novisitados}}</p>
+										</div>
+										<div class="col-md-4 col-xs-4 text-primary">Efectividad
+											<p>{{o.porcentaje}}%</p>
+										</div>
+									</div>
+									<div class="row contentRoute heightNone" id="mapRoute{{o.id}}" ng-class="bmapCtrl.mapRoute{{o.id}}">
+										<div ng-show="bmapCtrl.customersVN{{o.id}}">
+											<div ng-repeat="u in o.clientes">
+												<div class="col-md-8 col-xs-8">{{u.nombre}}
+													<hr>
+												</div>
+												<div class="col-md-4 col-xs-4">
+													<i class="material-icons text-{{ u.estado == 'visitado' ? 'success' : 'default' }}">check_circle</i>&nbsp;&nbsp;&nbsp;
+													<i class="material-icons text-danger pointer" ng-click="bmapCtrl.centerMap(u.coordenadas[0], u.coordenadas[1])">place</i>
+													<hr>
+												</div>
+												<hr>
+											</div>
+										</div>
+										<div ng-show="bmapCtrl.routeUserCurrent{{o.id}}">
+											<div ng-repeat="r in o.route">
+
+												<span class="col-md-1 col-xs-1 text-center">
+													<strong>{{$index}}</strong>
+												</span>
+
+												<span class="col-md-5 col-xs-5 trunc text-left" >
+													{{r.lat}}
+												</span>
+												<span class="col-md-5 col-xs-5 trunc" >
+													{{r.lng}}
+												</span>
+												<span class="col-md-1 col-xs-1 text-center">
+													<i class="material-icons text-danger pointer" ng-click="bmapCtrl.centerMap(r.lat, r.lng)">place</i>
+												</span>
+												<br>
+											</div>
+										</div>
+									</div>
+									<div class="arrowDownTop textWeight">
+										<div class="col-md-5 col-xs-5 pointer" ng-click="bmapCtrl.toggleRoute('customers',o.id)">Clientes</div>
+										<div class="col-md-2 col-xs-2 pointer text-success" ng-click="bmapCtrl.toggleRoute('hide',o.id)">
+											{{bmapCtrl["arrowHideCR"+o.id]}}
+										</div>
+										<div class="col-md-5 col-xs-5 pointer" ng-click="bmapCtrl.toggleRoute('route',o.id)">Ruta</div>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="row text-center marginNone" ng-show="bmapCtrl.viewAlarms">
+			<br>
+			<div class="col-md-12 text-center text-primary pointer" ng-click="bmapCtrl.addMarker('alarmsAll', null, null)"><p>Posición todas las alarmas</p></div>
+			<div class="col-md-10 text-center col-md-offset-1 contentCustomers">
+				<table id="mapAlertsTable" class="display nowrap" cellspacing="0" width="100%">
+					<thead class="hidden">
+						<tr>
+							<th></th>
+						</tr>
+					</thead>
+					<tfoot class="hidden">
+						<tr>
+							<th></th>
+						</tr>
+					</tfoot>
+					<tbody>
+						<tr ng-repeat="o in bmapCtrl.listAlarm" class="pointer" ng-click="bmapCtrl.addMarker('alarms',o.id)">
+							<td>
+								<div class="alarms {{o.color}}">
+									<div class="row">
+
+										<div class="col-md-4 col-xs-4 content text-center">
+											<p>
+												<i class="material-icons">{{o.icon}}</i><br>
+												<span class="nameAlert">{{o.alerta}}</span>
+											</p>
+										</div>
+
+										<div class="col-md-8 col-xs-8 content2">
+											<p>
+												<b>{{o.usuario}}</b><br>
+												312465658<br>
+												{{o.direccion}}<br>
+												{{o.fecha}}
+											</p>
+										</div>
+									</div>
+
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+
+	</div>
+	<div class="arrowLeftTwo" ng-click="bmapCtrl.toggleSidebar2()" ng-class="{'hideArrow2' : bmapCtrl.toggleArrow2}">
+		<i class="material-icons">{{ bmapCtrl.textArrow2 == true ? 'keyboard_arrow_left' : 'keyboard_arrow_right' }}</i>
+	</div>
+	<div class="content">
+		<div id="themap" class="smap-big"></div>
+	</div>
+
+
+	<div class="controlMap ">
+		<ul class="listItems">
+			<li class="pointer item"><i class="material-icons">map</i>
+				<ul class="subItem" id="subItem">
+					<li onclick="Anuket.setMapType('roadmap')"><img src="images/maps/roadmap.jpg"></li>
+					<li onclick="Anuket.setMapType('hybrid')"><img src="images/maps/hybrid.jpg"> </li>
+					<li onclick="Anuket.setMapType('night_mode')"><img src="images/maps/night_mode.jpg"> </li>
+					<li onclick="Anuket.setMapType('satellite')"><img src="images/maps/satellite.jpg"> </li>
+					<li onclick="Anuket.setMapType('terrain')"><img src="images/maps/terrain.jpg"> </li>
+				</ul>
+			</li>
+			<li class="pointer item" onclick="Anuket.clearMap()"><i class="material-icons">delete_forever</i></li>
+			<li class="pointer item" onclick="Anuket.traffic()"><i class="material-icons">traffic</i></li>
+			<li class="pointer item" onclick="Anuket.getCurrentPosition()"><i class="material-icons">gps_fixed</i></li>
+		</ul>
+	</div>
+</div>

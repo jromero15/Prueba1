@@ -1,0 +1,97 @@
+<div ng-controller="sideBarController as sdbrCtrl">
+	<div class="contentSidebar" id="sidebar">
+	    <div class="hideSidebar" ng-click="sdbrCtrl.hideSidebar();" id="hideSidebar">
+	    </div>
+	    <div class="itemsSidebar" id="itemsSidebar">
+	        <div class="contentProfile">
+				<div id="contentProfile">
+		            <img src="http://pk2-angular.creative-tim.com/assets/img/faces/joe-gardner-2.jpg" data-toggle="modal" data-target="#changePass">
+		            <br>
+		            <br>
+		            <p>Carolina Gomez</p>
+		            <p>Administrador Bogotá</p>
+				</div>
+	        </div>
+	        <div class="contentItems">
+	            <ul class="itemUl" id="contentList">
+	                <li class="itemLi" ng-click="sdbrCtrl.viewContent('groups')">
+	                    <i class="material-icons">group</i>
+	                    <p>Grupos</p>
+	                </li>
+	                <li class="itemLi" ng-click="sdbrCtrl.viewContent('users')">
+	                    <i class="material-icons">account_circle</i>
+	                    <p>Usuarios</p>
+	                </li>
+	                <li class="itemLi" ng-click="sdbrCtrl.viewContent('customers')">
+	                    <i class="material-icons">assignment_ind</i>
+	                    <p>Clientes</p>
+	                </li>
+	                <li class="itemLi" ng-click="sdbrCtrl.viewContent('map')">
+	                    <i class="material-icons">map</i>
+	                    <p>Mapa</p>
+	                </li>
+	                <li class="itemLi" ng-click="sdbrCtrl.viewContent('calendar')">
+	                    <i class="material-icons">date_range</i>
+	                    <p>Calendario</p>
+	                </li>
+	                <li class="itemLi" ng-click="sdbrCtrl.viewContent('dashboard')">
+	                    <i class="material-icons">dashboard</i>
+	                    <p>Dashboard</p>
+	                </li>
+	                <li class="itemLi" ng-click="sdbrCtrl.viewContent('logout')">
+	                    <i class="material-icons">exit_to_app</i>
+	                    <p>Salir</p>
+	                </li>
+
+	            </ul>
+	        </div>
+	    </div>
+	</div>
+
+	<div class="modal fade" data-keyboard="false" id="changePass" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	    <div class="modal-dialog" >
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	                <h4 class="modal-title text-center" id="myModalLabel">Cambiar Contraseña</h4>
+	            </div>
+	            <div class="modal-body ">
+	                <div class="form-group label-floating is-empty">
+	                    <label class="control-label">Contraseña Antigua</label>
+	                    <input type="password" class="form-control" ng-model="sdbrCtrl.passOld">
+	                    <span class="material-input"></span></div>
+	                <div class="form-group label-floating is-empty">
+	                    <label class="control-label">Contraseña Nueva</label>
+	                    <input type="password" class="form-control" ng-model="sdbrCtrl.passNew">
+	                    <span class="material-input"></span></div>
+	                <div class="form-group label-floating is-empty">
+	                    <label class="control-label">Confirmar Contraseña Nueva</label>
+	                    <input type="password" class="form-control" ng-model="sdbrCtrl.passNew2">
+	                    <span class="material-input"></span></div>
+	            </div>
+	            <div class="modal-footer">
+	                <button type="button" class="btn btn-info btn-simple" data-loading-text="<i class='fa fa-spinner fa-spin '></i>Cambiando contraseña..." data-toggle="modal" data-target="#confirmChangePass"  id="changePassword">Cambiar</button>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+
+	<div class="modal fade" id="confirmChangePass" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header text-center h3">
+	                Está seguro de cambiar la contraseña
+	            </div>
+	            <div class="modal-footer text-center">
+	                <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="sdbrCtrl.changePassword()">Aceptar</button>
+	                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+
+</div>
+
+
+
+

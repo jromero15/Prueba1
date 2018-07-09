@@ -1,0 +1,88 @@
+<div class="wrapper wrapper-full-page">
+    <div class="full-page login-page" filter-color="black">
+        <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+
+                            <div class="card card-login">
+                                <div class="card-header text-center" data-background-color="blue">
+                                    <h4 class="card-title">Servinformacion</h4>
+                                    <!--<div class="social-line">
+                                        <a href="#" class="btn btn-just-icon btn-simple">
+                                            <i class="fa fa-facebook-square"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-just-icon btn-simple">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-just-icon btn-simple">
+                                            <i class="fa fa-google-plus"></i>
+                                        </a>
+                                    </div>-->
+                                </div>
+                                <div class="card-content">
+                                	<p class="description text-center">Ruta Control</p>
+                                    <div class="input-group" ng-show="lgnCtrl.email">
+                                        <span class="input-group-addon"></span>
+                                        <div class="form-group label-floating is-empty">
+                                            <label class="control-label">Correo Electronico</label>
+                                            <input type="text" class="form-control" ng-model="lgnCtrl.emailLogin" ng-enter="lgnCtrl.dologin();">
+                                            <span class="material-input"></span></div>
+                                    </div>
+                                    <div class="input-group" ng-show="lgnCtrl.txtPass">
+                                        <span class="input-group-addon"></span>
+                                        <div class="form-group label-floating is-empty">
+                                            <label class="control-label">Clave</label>
+                                            <input type="password" class="form-control"  ng-model="lgnCtrl.passLogin" ng-enter="lgnCtrl.dologin();">
+                                            <span class="material-input"></span></div>
+                                    </div>
+
+                                    <div class="input-group" ng-show="lgnCtrl.txtCode">
+                                        <span class="input-group-addon">
+											</span>
+                                        <div class="form-group label-floating is-empty">
+                                            <label class="control-label">Código</label>
+                                            <input type="text" class="form-control" ng-model="lgnCtrl.code">
+                                            <span class="material-input"></span></div>
+                                    </div>
+                                    <div class="input-group" ng-show="lgnCtrl.txtPassNew">
+                                        <span class="input-group-addon"></span>
+                                        <div class="form-group label-floating is-empty">
+                                            <label class="control-label">Clave</label>
+                                            <input type="password" class="form-control" ng-model="lgnCtrl.passNew">
+                                            <span class="material-input"></span></div>
+                                    </div>
+                                    <div class="input-group" ng-show="lgnCtrl.txtPassNew2">
+                                        <span class="input-group-addon"></span>
+                                        <div class="form-group label-floating is-empty">
+                                            <label class="control-label">Confirmar Clave</label>
+                                            <input type="password" class="form-control" ng-model="lgnCtrl.passNew2">
+                                            <span class="material-input"></span></div>
+                                    </div>
+
+                                </div>
+                                <div class="footer text-center">
+                                    <button class="btn text-blue2 btn-simple btn-wd btn-lg" id="btnLogin" ng-show="lgnCtrl.btnLogin" ng-click="lgnCtrl.dologin();" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Verificando...">Entrar</button>>
+                                    <button class="btn text-blue2 btn-simple btn-wd btn-lg" ng-show="lgnCtrl.btnRestore" ng-click="lgnCtrl.sendCode();">Enviar Código</button>
+                                    <button class="btn text-blue2 btn-simple btn-wd btn-lg" ng-show="lgnCtrl.btnChangePass" ng-click="lgnCtrl.changePass();">Cambiar Clave</button>
+                                    <br>
+                                    <p class="category text-center text-blue2" ng-show="lgnCtrl.txtRestorePass" ng-click="lgnCtrl.restorePass()">
+                                        <u>Restablecer Contraseña</u>
+                                    </p>
+                                    <p class="category text-center text-blue2" ng-show="lgnCtrl.txtLogin" ng-click="lgnCtrl.loginShow()">
+                                        <u>Iniciar Sesión</u>
+                                    </p>
+                                </div>
+                            </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+        </footer>
+        <div class="full-page-background" style="background-image: url(./images/fondo.jpg) "></div>
+    </div>
+</div>

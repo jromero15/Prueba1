@@ -1,0 +1,206 @@
+<div class="wrapper ">
+    <div class="main-panel tablesFull">
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header card-header-tabs" data-background-color="blue">
+                                <div class="nav-tabs-navigation">
+                                    <div class="nav-tabs-wrapper">
+                                        <span class="nav-tabs-title">
+											<strong>Clientes</strong>
+										</span>
+                                        <ul class="nav nav-tabs" data-tabs="tabs">
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <h4 class="card-title"></h4>
+                                <div class="toolbar">
+                                    <button class="btn btn-info" ng-click="ctmsCtrl.createCustomer()">Crear</button>
+                                </div>
+                                <div class="material-datatables">
+                                    <table id="customersTable" class="display nowrap" cellspacing="0" width="100%" >
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">#</th>
+                                                <th class="text-center">Id</th>
+                                                <th class="text-center">Nombre</th>
+                                                <th class="text-center">Direccion</th>
+                                                <th class="text-center">Teléfono</th>
+                                                <th class="text-center">Identificación</th>
+                                                <th class="text-center">Acción</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th class="text-center">#</th>
+                                                <th class="text-center">Id</th>
+                                                <th class="text-center">Nombre</th>
+                                                <th class="text-center">Direccion</th>
+                                                <th class="text-center">Teléfono</th>
+                                                <th class="text-center">Identificación</th>
+                                                <th class="text-center">Acción</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                        	<tr ng-repeat="customer in ctmsCtrl.listCustomers">
+                                                <td class="text-center">{{$index}}</td>
+                                                <td class="text-center">{{customer.id}}</td>
+                                                <td class="text-center">{{customer.nombre_cliente}}</td>
+                                                <td class="text-center">{{customer.direccion}}</td>
+                                                <td class="text-center">{{customer.telefono}}</td>
+                                                <td class="text-center">{{customer.identificacion}}</td>
+                                                <td class="text-center">
+                                                    <a ng-click="ctmsCtrl.fillFields(customer.id)" href class="btn btn-simple btn-warning btn-icon edit"><i class="material-icons">mode_edit</i></a>
+                                                    <a ng-click="ctmsCtrl.confirm('delete',customer.id)" id="btnDeleteCustomer{{customer.id}}" data-loading-text="<i class='fa fa-spinner fa-spin '></i>" href class="btn btn-simple btn-danger btn-icon remove"><i class="material-icons">close</i></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- end content-->
+                        </div>
+                        <!--  end card  -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" data-keyboard="false" id="createCustomer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title text-center" id="myModalLabel">{{ctmsCtrl.titleModal}}</h4>
+			</div>
+			<div class="modal-body contentCustomerCreate forms">
+
+				<div class="row">
+					<div class="col-md-6">
+						<div class="input-group">
+		                    <span class="input-group-addon">
+								<i class="material-icons">account_circle</i>
+							</span>
+		                    <div class="form-group is-empty">
+		                        <input type="text" class="form-control" placeholder="Nombre" ng-model="ctmsCtrl.obj.nombre_cliente">
+		                        <span class="material-input"></span>
+		                    </div>
+		                </div>
+		                <div class="input-group">
+		                    <span class="input-group-addon">
+								<i class="material-icons">assignment_ind</i>
+							</span>
+		                    <div class="form-group is-empty">
+		                        <input type="text" class="form-control" placeholder="Identificación" ng-model="ctmsCtrl.obj.identificacion">
+		                        <span class="material-input"></span>
+		                    </div>
+		                </div>
+		                <div class="input-group">
+		                    <span class="input-group-addon">
+								<i class="material-icons">phone_android</i>
+							</span>
+		                    <div class="form-group is-empty">
+		                        <input type="text" class="form-control" placeholder="Telefono" ng-model="ctmsCtrl.obj.telefono">
+		                        <span class="material-input"></span>
+		                    </div>
+		                </div>
+		                <div class="input-group">
+		                    <span class="input-group-addon">
+								<i class="material-icons">directions</i>
+							</span>
+		                    <div class="form-group is-empty">
+		                        <input type="text" class="form-control" id="addressCustomer" ng-blur="ctmsCtrl.onBlur()" placeholder="Direccion" ng-model="ctmsCtrl.obj.direccion">
+		                        <span class="material-input"></span>
+		                    </div>
+		                </div>
+		                <div class="input-group">
+		                    <span class="input-group-addon">
+								<i class="material-icons">place</i>
+							</span>
+		                    <div class="form-group is-empty">
+		                        <input type="text" class="form-control" placeholder="cx" id="cxCustomer" ng-model="ctmsCtrl.obj.cx" disabled>
+		                        <span class="material-input"></span>
+		                    </div>
+		                </div>
+		                <div class="input-group">
+		                    <span class="input-group-addon">
+								<i class="material-icons">place</i>
+							</span>
+		                    <div class="form-group is-empty">
+		                        <input type="text" class="form-control" placeholder="cy" id="cyCustomer" ng-model="ctmsCtrl.obj.cy" disabled>
+		                        <span class="material-input"></span>
+		                    </div>
+		                </div>
+					</div>
+
+					<div class="col-md-6 col-xs-11 mapCustomer" id="mapCustomer">
+					</div>
+
+					<div class="col-md-12">
+						<div class="input-group">
+	                    <span class="input-group-addon">
+							<i class="material-icons">assignment</i>
+						</span>
+	                    <div class="form-group is-empty">
+	                        <input type="text" class="form-control" placeholder="Observación" ng-model="ctmsCtrl.obj.observacion" >
+	                        <span class="material-input"></span>
+	                    </div>
+	                </div>
+
+					<div class="input-group">
+	                    <span class="input-group-addon">
+							<i class="material-icons">group</i>
+						</span>
+	                    <div class="form-group is-empty">
+	                        <input type="text" class="form-control" value="Usuarios" disabled="true">
+	                        <span class="material-input"></span>
+	                    </div>
+	                </div>
+	                <form class="contentChecks" id="customersUsersList">
+	                    <div class="checkbox" ng-repeat="gruop in ctmsCtrl.listUsers">
+	                        <label>
+	                            <input type="checkbox" name="optionsCheckboxes" value="{{gruop.id}}"><span class="checkbox-material"><span class="check"></span></span>
+	                            {{gruop.first_name + gruop.last_name}}
+	                        </label>
+	                    </div>
+	                </form>
+					</div>
+
+
+
+				</div>
+
+
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" ng-click="ctmsCtrl.confirm('save')" id="saveGroupNew" ng-show="ctmsCtrl.btnSHSave" class="btn btn-success btn-simple" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Guardando Grupo...">Guardar</button>
+                <button type="button" ng-click="ctmsCtrl.confirm('update')" id="updateGroup" ng-show="ctmsCtrl.btnSHUpdate" class="btn btn-success btn-simple" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Actualizando Grupo...">Actualizar</button>
+                <button type="button" ng-click="ctmsCtrl.clearForm()" class="btn btn-warning btn-simple">Limpiar</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="modal fade" id="confirmCustomer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header text-center h3">
+                {{ctmsCtrl.textConfirmCustomer}}
+            </div>
+            <div class="modal-footer text-center">
+                <button type="button" class="btn btn-success" data-dismiss="modal"  ng-click="ctmsCtrl.selectAction()">Aceptar</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+

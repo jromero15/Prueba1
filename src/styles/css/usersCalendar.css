@@ -1,0 +1,55 @@
+.usersCalendarTable{
+
+}
+
+.usersCalendarTable .card{
+    margin: 10px 0;
+}
+
+.usersCalendarTable .user {
+
+}
+
+
+.usersCalendarTable .user img{
+	height:70px;
+}
+
+
+.usersCalendarTable tbody tr{
+    position: relative;
+    display: inline-table;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+
+.usersCalendarTable tbody tr .card{
+    cursor: pointer;
+    transition: all 0.7s;
+    box-shadow:0 14px 26px -19px rgb(0, 0, 0), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgb(238, 238, 238);
+}
+
+
+.usersCalendarTable tbody tr .card:hover{
+    box-shadow: 0px 0px 0px -30px;
+    background: #f1f1f1;
+    border: 0;
+}
+
+
+.usersCalendarTable tbody tr td{
+	border-top: 0px !important;
+}
+
+.usersCalendarTable tbody tr.odd>.sorting_1 {
+	background: #fff !important;
+}
+
+.usersCalendarTable table.dataTable.display tbody tr>.sorting_1 {
+	background: #fff !important;
+}
+
+
+.usersCalendarTable table.dataTable.display tbody tr:hover {
+	background: #fff !important;
+}

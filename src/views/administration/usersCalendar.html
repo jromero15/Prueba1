@@ -1,0 +1,44 @@
+<div class="wrapper usersCalendarTable">
+	<div class="main-panel">
+		<div class="content">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="card">
+							<div class="card-content">
+								<div class="material-datatables">
+									<table id="usersCalendarTable" class="display" cellspacing="0" width="100%">
+										<thead class="hidden"><tr><th></th></tr></thead>
+										<tfoot class="hidden"><tr><th></th></tr></tfoot>
+										<tbody>
+											<tr ng-repeat="user in uCldrCtrl.listUsers" ng-click="uCldrCtrl.goCalendar(user.id)">
+												<td class="text-center user">
+													<div class="card" style="width: 15rem;">
+													  <br>
+													  <img class="card-img-top" src="{{user.avatar}}" alt="Card image cap">
+													  <div class="card-block">
+													  	<br>
+													    <h6 class="card-title"><b>{{user.first_name}} {{user.last_name}}</b></h6>
+													    <p class="card-text">{{user.username}}</p>
+													    <h6 class="card-title"><b>{{user.cedula}}</b></h6>
+													    <br>
+													  </div>
+													</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<!-- end content-->
+						</div>
+						<!--  end card  -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+

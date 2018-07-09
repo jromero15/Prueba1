@@ -1,0 +1,36 @@
+html,body {
+	/*overflow:hidden;*/
+}
+
+/**** color material kit *****/
+
+
+.card [data-background-color="blue"] {
+	background: -webkit-linear-gradient(240deg, #1E88E5, #1565C0);
+	background: -o-linear-gradient(240deg, #1E88E5, #1565C0);
+	background: linear-gradient(330deg, #1E88E5, #1565C0);
+}
+
+
+/**** global ****/
+
+.text-blue2 {
+	color:#1565C0 !important;
+}
+
+.v-a-bottom {
+	vertical-align: bottom;
+}
+
+.v-a-sub {
+	vertical-align: sub;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+
+.bg-white {
+	background: #fff;
+}

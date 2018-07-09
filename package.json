@@ -1,0 +1,69 @@
+{
+  "name": "FrontEndBase",
+  "version": "1.0.0",
+  "description": "FrontEndBase",
+  "main": "index.html",
+  "keywords": [
+    "material design",
+    "spa",
+    "dashboard",
+    "admin",
+    "angularjs",
+    "frontend",
+    "mobile-first"
+  ],
+  "author": {
+    "name": "@diniremix",
+    "url": "http://jorgebrunal.co"
+  },
+  "license": "https://opensource.org/licenses/MIT",
+  "homepage": "http://jorgebrunal.co",
+  "bugs": {
+    "url": "http://github.com/diniremix"
+  },
+  "private": true,
+  "devDependencies": {
+    "gulp-connect": "*",
+    "chalk": "*",
+    "del": "*",
+    "gulp": "*",
+    "gulp-clean-css": "*",
+    "gulp-concat": "*",
+    "gulp-expect-file": "*",
+    "gulp-filter": "*",
+    "gulp-gae": "*",
+    "gulp-header": "*",
+    "gulp-htmlmin": "*",
+    "gulp-if": "*",
+    "gulp-jshint": "*",
+    "gulp-jsonminify": "*",
+    "gulp-jsvalidate": "*",
+    "gulp-less": "*",
+    "gulp-livereload": "*",
+    "gulp-load-plugins": "*",
+    "gulp-minify-css": "*",
+    "gulp-ng-annotate": "*",
+    "gulp-notify": "*",
+    "gulp-plumber": "*",
+    "gulp-prettify": "*",
+    "gulp-rename": "*",
+    "gulp-size": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-sync": "*",
+    "gulp-uglify": "*",
+    "gulp-util": "*",
+    "gulp-wrapper": "*",
+    "jshint": "*",
+    "merge-stream": "*",
+    "node-notifier": "*",
+    "os-utils": "*",
+    "require-dir": "*",
+    "run-sequence": "*",
+    "yargs": "*"
+  },
+  "dependencies": {
+    "gulp": "*",
+    "gulp-connect": "*",
+    "gulp-concat": "*"
+  }
+}

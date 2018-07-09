@@ -1,0 +1,21 @@
+/**color for checkbox */
+.checkbox input[type=checkbox]:checked + .checkbox-material .default{
+    background-color: #999999;
+}
+.checkbox input[type=checkbox]:checked + .checkbox-material .info{
+    background-color: #00bcd4;
+}
+.checkbox input[type=checkbox]:checked + .checkbox-material .success{
+    background-color: #4caf50;
+}
+.checkbox input[type=checkbox]:checked + .checkbox-material .warning{
+    background: #ff9800;
+    background-color: #ff9800;
+}
+.checkbox input[type=checkbox]:checked + .checkbox-material .danger{
+    background-color: #f44336;
+}
+.checkbox input[type=checkbox]:checked + .checkbox-material .rose{
+    background-color: #e91e63;
+}
+/**color for checkbox */
