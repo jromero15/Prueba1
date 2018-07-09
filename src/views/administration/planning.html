@@ -113,155 +113,76 @@
 
 				</div>
 			</div>
-
-
 			<div class="col-md-10 col-sm-9 bg-white">
 				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
 					<h3>
-						<div class="col-md-12">
-							<i class="material-icons v-a-sub i-tile">cloud_download</i>
-							<button class="btn btn-twitter">Importar</button>
-						</div>
-
-
-
-
+						<i class="material-icons v-a-sub i-tile">offline_pin</i>
+						<span>Planning</span>
 					</h3>
-					<div class=".col-sm-5 .col-md-6 bg-white">
-						<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-							<div class="row">
-								<div class="col-sm-6 .col-md-5 .col-lg-6 " style="text-align: center;">
-									<h3>
-											<div class="card-header card-header-tabs" data-background-color="orange">
-													<div class="nav-tabs-navigation">
-													  <div class="nav-tabs-wrapper">
-														<span class="nav-tabs-title">
-														  <strong>Opciones comunes de importación</strong>
-														</span>
-														<ul class="nav nav-tabs" data-tabs="tabs">
-														</ul>
-													  </div>
-													</div>
-												  </div>
-
-									</h3>
-									<label class="control-label" for="fichero1">Añadir nuevo fichero</label>
-									<div class="controls">
-										<input id="fichero1" type="file" style="display:none" name="fichero1">
-										<div class="input-append">
-											<input id="falso1" class="input-xlarge" type="text">
-											<a class="btn btn-twitter">
-												<i class="fa fa-folder-open-o"></i> Seleccionar</a>
-										</div>
-										<div class="panel-body" style="text-align: left;">
-										<div class="panel-body"></div>
-										<ul>
-											<li class="pointer"></li>
-											<input id="exportTabNav:j_id_qf" type="radio" name="rdbJobPreset" value="0"> utilizar la preasignación </li>
-
-											<li class="pointer"></li>
-											<input id="exportTabNav:j_id_qf" type="radio" name="rdbJobPreset" value="0"> utilizar la preasignación forzada </li>
-										</ul>
-									</div>
-								</div>
-								</div>
-
-								<div class="col-sm-6 .col-md-5 .col-lg-6" style="text-align: center;">
-									<h3>
-		
-										<div class="card-header card-header-tabs" data-background-color="orange">
-												<div class="nav-tabs-navigation">
-												  <div class="nav-tabs-wrapper">
-													<span class="nav-tabs-title">
-													  <strong>Opciones de importación de las tareas</strong>
-													</span>
-													<ul class="nav nav-tabs" data-tabs="tabs">
-													</ul>
-												  </div>
-												</div>
-											  </div>
-									</h3>
-									<div class="panel-body" style="text-align: left;">
-
-										<ul>
-											<li class="pointer"></li>
-											<input id="exportTabNav:chkAutoParentOrder" type="checkbox" name="exportTabNav:chkAutoParentOrder" value="true"> autocreación de las órdenes de misión</li>
-
-											<li class="pointer"></li>
-											<input id="exportTabNav:chkAutoParentOrder" type="checkbox" name="exportTabNav:chkAutoParentOrder" value="true"> optimización de la orden de planificación de las tareas </li>
-
-											<li class="pointer"></li>
-											<input id="exportTabNav:j_id_qf" type="radio" name="rdbJobPreset" value="0"> no preasignar</li>
-
-											<li class="pointer"></li>
-											<input id="exportTabNav:j_id_qf" type="radio" name="rdbJobPreset" value="0"> utilizar la preasignación </li>
-
-											<li class="pointer"></li>
-											<input id="exportTabNav:j_id_qf" type="radio" name="rdbJobPreset" value="0"> utilizar la preasignación forzada </li>
-
-										</ul>
-
-									</div>
-									<h3>
-											<div class="col-md-12">
-												<button class="btn btn-twitter">Importar</button>
-											</div>
-					
-					
-					
-					
-										</h3>
-								</div>
-
-
-							</div>
-
-						</div>
-
-
-
-
-
+					<label>Busqueda
+						<select name="planningTable_length" aria-controls="planningTable" class="">
+							<option value="10">Estandar</option>
+							<option value="25">Todas</option>
+						</select></label>
+					<div class="col-md-12">
+						<button class="btn btn-twitter">Nuevo</button>
+						<button class="btn btn-twitter">Eliminar</button>
+						<button class="btn btn-twitter">Desactivar</button>
+						<button class="btn btn-twitter">Activar</button>
+						<button class="btn btn-twitter">Actualizar</button>
 					</div>
-				</div>
-				<div class="col-md-10 col-sm-9 bg-white">
-					<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-						<h3>
-							<div class="col-md-12">
-								<i class="material-icons v-a-sub i-tile">cloud_upload</i>
-								<button class="btn btn-twitter">Exportar</button>
-							</div>
-						</h3>
-						<div class="panel-body" style="text-align: left;">
-
-							<ul>
-								<li class="pointer"></li>
-								<input id="exportTabNav:j_id_qf" type="radio" name="rdbJobPreset" value="0">Exportar los archivos vacíos</li>
-
-								<li class="pointer"></li>
-								<input id="exportTabNav:j_id_qf" type="radio" name="rdbJobPreset" value="0">Exportar los archivos vacíos simplificados	</li>
-
-								<li class="pointer"></li>
-								<input id="exportTabNav:j_id_qf" type="radio" name="rdbJobPreset" value="0">Exportar todo</li>
-
-								<li class="pointer"></li>
-								<input id="exportTabNav:j_id_qf" type="radio" name="rdbJobPreset" value="0"> utilizar la preasignación </li>
-
-								<li class="pointer"></li>
-								<input id="exportTabNav:j_id_qf" type="radio" name="rdbJobPreset" value="0"> utilizar la preasignación forzada </li>
-
-							</ul>
-
-									
-								</div>
-<br><br><br><br><br><br>
-
-
-
-
+					<div class="col-md-12">
+						<div class="table-responsive">
+							<div class="material-datatables">
+								<br>
+								<table id="planningTable" class="display nowrap" cellspacing="0" width="100%">
+									<thead>
+										<tr>
+											<th class="text-center">#</th>
+											<th class="text-center">Id</th>
+											<th class="text-center">Nombre</th>
+											<th class="text-center">Descripción</th>
+											<th class="text-center">Depende de</th>
+											<th class="text-center">Acción</th>
+										</tr>
+									</thead>
+									<tfoot>
+										<tr>
+											<th class="text-center">#</th>
+											<th class="text-center">Id</th>
+											<th class="text-center">Nombre</th>
+											<th class="text-center">Descripción</th>
+											<th class="text-center">Depende de</th>
+											<th class="text-center">Acción</th>
+										</tr>
+									</tfoot>
+									<tbody>
+										<tr ng-repeat="planning in planCtrl.listplanning">
+											<td class="text-center">{{$index}}</td>
+											<td class="text-center">{{planning.id}}</td>
+											<td class="text-center">{{planning.name}}</td>
+											<td class="text-center">{{planning.description}}</td>
+											<td class="text-center">{{planning.dependence}}</td>
+											<td class="text-center">
+												<a ng-click="planCtrl.fillFields(planning.id)" href class="btn btn-simple btn-warning btn-icon edit">
+													<i class="material-icons">mode_edit</i>
+												</a>
+												<a ng-click="planCtrl.confirm('delete',planning.id)" id="btnDeleteCustomer{{planning.id}}" data-loading-text="<i class='fa fa-spinner fa-spin '></i>"
+												 href class="btn btn-simple btn-danger btn-icon remove">
+													<i class="material-icons">close</i>
+												</a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<br>
 							</div>
 						</div>
 					</div>
+
+
 				</div>
+			</div>
+		</div>
+	</div>

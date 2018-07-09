@@ -183,8 +183,10 @@
         vm.dofalseLogin = function() {
             //$log.info('dofalseLogin', vm.campos);
 
-
-            if (vm.emailLogin != '' && vm.passLogin != '') {
+            console.log("bbbb")
+            sessionStorage.session = true;
+            $state.go('app.dashboard');
+            /*if (vm.emailLogin != '' && vm.passLogin != '') {
 
                 if (vm.emailLogin === 'andres' && vm.passLogin === '123456') {
                     $state.go('app.dashboard');
@@ -201,7 +203,7 @@
                     status: 'warning',
                     timeout: 5000
                 });
-            }
+            }*/
 
         };
 

@@ -78,14 +78,21 @@
 			controllerAs: 'cfgCtrl',
 			resolve: helper.resolveFor('Dtables')
 		}).state('app.import', {
-        url: '/import',
-        title: 'import',
-        templateUrl: helper.basepath('administration/import.html'),
-        controller: 'importController',
-        controllerAs: 'impexp',
-        resolve: helper.resolveFor('Dtables')
-    });
-}
+			url: '/import',
+			title: 'import',
+			templateUrl: helper.basepath('administration/import.html'),
+			controller: 'importController',
+			controllerAs: 'impoexp',
+			resolve: helper.resolveFor('Dtables')
+		}).state('app.planning', {
+			url: '/planning',
+			title: 'planning',
+			templateUrl: helper.basepath('administration/planning.html'),
+			controller: 'planningController',
+			controllerAs: 'planCtrl',
+			resolve: helper.resolveFor('Dtables')
+		});
+    }
 
     angular.module('app.routes').config(routesConfig);
     routesConfig.$inject = [

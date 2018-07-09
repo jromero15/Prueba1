@@ -5,10 +5,10 @@
 (function() {
 	'use strict';
 
-	function configController($scope, $timeout, $log, Api, Notify, APP_CONFIG, $state) {
+	function planningController($scope, $timeout, $log, Api, Notify, APP_CONFIG, $state) {
 		var vm = this;
 
-		vm.listAgencies = [
+		vm.listplanning = [
 			{
 				id:'1234',
 				name:'Andres León',
@@ -51,7 +51,7 @@
 
 			setTimeout(function(){
 
-				$('#agenciesTable').DataTable({
+				$('#planningTable').DataTable({
 	                "language": {
 	                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
 	                }
@@ -62,7 +62,7 @@
 
 		};
 
-		vm.getAgencies = function() {
+		vm.getplanning = function() {
             /*Api('client/', 'GET').then((function(result) {
                 switch (result.status) {
                     case 200:
@@ -127,10 +127,10 @@
 		};
 
 		vm.main();
-	} //configController
+	} //planningController
 
-	angular.module('app.core').controller('configController', configController);
-	configController.$inject = [
+	angular.module('app.core').controller('planningController', planningController);
+	planningController.$inject = [
 		'$scope',
 		'$timeout',
 		'$log',

@@ -27,14 +27,14 @@
                                         <span class="input-group-addon"></span>
                                         <div class="form-group label-floating is-empty">
                                             <label class="control-label">Correo Electronico</label>
-                                            <input type="text" class="form-control" ng-model="lgnCtrl.emailLogin" ng-enter="lgnCtrl.dologin();">
+                                            <input type="text" class="form-control" ng-model="lgnCtrl.emailLogin" ng-enter="lgnCtrl.dofalseLogin();">
                                             <span class="material-input"></span></div>
                                     </div>
                                     <div class="input-group" ng-show="lgnCtrl.txtPass">
                                         <span class="input-group-addon"></span>
                                         <div class="form-group label-floating is-empty">
                                             <label class="control-label">Clave</label>
-                                            <input type="password" class="form-control"  ng-model="lgnCtrl.passLogin" ng-enter="lgnCtrl.dologin();">
+                                            <input type="password" class="form-control"  ng-model="lgnCtrl.passLogin" ng-enter="lgnCtrl.dofalseLogin();">
                                             <span class="material-input"></span></div>
                                     </div>
 
@@ -63,14 +63,14 @@
 
                                 </div>
                                 <div class="footer text-center">
-                                    <button class="btn text-blue2 btn-simple btn-wd btn-lg" id="btnLogin" ng-show="lgnCtrl.btnLogin" ng-click="lgnCtrl.dologin();" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Verificando...">Entrar</button>>
+                                    <button class="btn text-blue2 btn-simple btn-wd btn-lg" id="btnLogin" ng-show="lgnCtrl.btnLogin" ng-click="lgnCtrl.dofalseLogin();" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Verificando...">Entrar</button>>
                                     <button class="btn text-blue2 btn-simple btn-wd btn-lg" ng-show="lgnCtrl.btnRestore" ng-click="lgnCtrl.sendCode();">Enviar Código</button>
                                     <button class="btn text-blue2 btn-simple btn-wd btn-lg" ng-show="lgnCtrl.btnChangePass" ng-click="lgnCtrl.changePass();">Cambiar Clave</button>
                                     <br>
                                     <p class="category text-center text-blue2" ng-show="lgnCtrl.txtRestorePass" ng-click="lgnCtrl.restorePass()">
                                         <u>Restablecer Contraseña</u>
                                     </p>
-                                    <p class="category text-center text-blue2" ng-show="lgnCtrl.txtLogin" ng-click="lgnCtrl.loginShow()">
+                                    <p class="category text-center text-blue2" ng-show="lgnCtrl.txtLogin" ng-click="lgnCtrl.dofalseLogin()">
                                         <u>Iniciar Sesión</u>
                                     </p>
                                 </div>

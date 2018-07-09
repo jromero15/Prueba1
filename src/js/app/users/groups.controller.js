@@ -425,7 +425,7 @@
 
             if (sessionStorage.session != undefined) {
                 $log.info("loading groupsController");
-                APP_CONFIG.AUTH2_TOKEN = JSON.parse(sessionStorage.user).data.token.access_token;
+                //APP_CONFIG.AUTH2_TOKEN = JSON.parse(sessionStorage.user).data.token.access_token;
                 vm.clearForm();
                 vm.getGroups();
                 vm.getCompany();
